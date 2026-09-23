@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Fire Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+        }
+
+        header {
+            height: 72px;
+            background: #101010;
+            border-bottom: 1px solid #292929;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+        }
+
+        .logo {
+            color: #ffb000;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .menu {
+            font-size: 25px;
+        }
+
+        .hero {
+            min-height: 520px;
+            padding: 70px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background:
+                radial-gradient(circle at 80% 20%, #5c3200 0%, transparent 35%),
+                linear-gradient(135deg, #171717, #080808);
+        }
+
+        .tag {
+            color: #ffb000;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffb000;
+        }
+
+        .hero p {
+            color: #a9a9a9;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            width: fit-content;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background: #ffb000;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 45px 22px;
+        }
+
+        .title {
+            font-size: 26px;
+            margin-bottom: 25px;
+        }
+
+        .title span {
+            color: #ffb000;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .category {
+            padding: 25px 10px;
+            text-align: center;
+            background: #131313;
+            border: 1px solid #292929;
+            border-radius: 15px;
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .category h3 {
+            font-size: 15px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .product {
+            background: #131313;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 145px;
+            background: linear-gradient(135deg, #252525, #392200);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #ffb000;
+            font-weight: bold;
+            margin-bottom: 13px;
+        }
+
+        .buy {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background: #ffb000;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #ffb000, #ff6800);
+            color: #111;
+            padding: 28px;
+            border-radius: 18px;
+        }
+
+        .banner h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .banner .button {
+            background: #111;
+            color: white;
+        }
+
+        footer {
+            background: #101010;
+            border-top: 1px solid #292929;
+            padding: 30px 20px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        @media (min-width: 700px) {
+
+            .hero {
+                padding-left: 10%;
+            }
+
+            section {
+                padding-left: 10%;
+                padding-right: 10%;
+            }
+
+            .categories,
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">🔥 FREE FIRE STORE</div>
+        <div class="menu">☰</div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <div class="tag">FREE FIRE • OFFICIAL STORE</div>
+
+            <h1>
+                TON UNIVERS<br>
+                <span>FREE FIRE.</span>
+            </h1>
+
+            <p>
+                Découvre notre boutique et retrouve
+                toutes nos offres dédiées aux joueurs.
+            </p>
+
+            <a href="#boutique" class="button">
+                🛒 Découvrir la boutique
+            </a>
+
+        </section>
+
+
+        <section>
+
+            <h2 class="title">
+                Explorer par <span>catégorie</span>
+            </h2>
+
+            <div class="categories">
+
+                <div class="category">
+                    <div class="category-icon">💎</div>
+                    <h3>Diamants</h3>
+                </div>
+
+                <div class="category">
+                    <div class="category-icon">🎁</div>
+                    <h3>Offres</h3>
+                </div>
+
+                <div class="category">
+                    <div class="category-icon">🔥</div>
+                    <h3>Promotions</h3>
+                </div>
+
+                <div class="category">
+                    <div class="category-icon">🎮</div>
+                    <h3>Gaming</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="boutique">
+
+            <h2 class="title">
+                Produits <span>populaires</span>
+            </h2>
+
+            <div class="products">
+
+                <div class="product">
+
+                    <div class="product-image">💎</div>
+
+                    <div class="product-info">
+                        <h3>Pack Diamants</h3>
+                        <div class="price">Prix à définir</div>
+
+                        <a href="#" class="buy">
+                            Acheter
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="product">
+
+                    <div class="product-image">🔥</div>
+
+                    <div class="product-info">
+                        <h3>Offre spéciale</h3>
+                        <div class="price">Prix à définir</div>
+
+                        <a href="#" class="buy">
+                            Acheter
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="product">
+
+                    <div class="product-image">🎁</div>
+
+                    <div class="product-info">
+                        <h3>Pack Premium</h3>
+                        <div class="price">Prix à définir</div>
+
+                        <a href="#" class="buy">
+                            Acheter
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="product">
+
+                    <div class="product-image">🎮</div>
+
+                    <div class="product-info">
+                        <h3>Gaming Pack</h3>
+                        <div class="price">Prix à définir</div>
+
+                        <a href="#" class="buy">
+                            Acheter
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section>
+
+            <div class="banner">
+
+                <h2>🔥 Offre du moment</h2>
+
+                <p>
+                    Retrouve prochainement nos offres
+                    et promotions exclusives.
+                </p>
+
+                <a href="#boutique" class="button">
+                    Voir les offres
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Free Fire Store
+    </footer>
+
+</body>
+</html>
