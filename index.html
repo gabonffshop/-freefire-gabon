@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Fire Store Gabon</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #070707;
+            color: white;
+        }
+
+        header {
+            height: 70px;
+            background: #111;
+            border-bottom: 1px solid #292929;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #ffb000;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .menu {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 15px;
+            width: 220px;
+            background: #151515;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-bottom: 1px solid #292929;
+        }
+
+        .mobile-menu a:hover {
+            background: #ffb000;
+            color: #111;
+        }
+
+        .hero {
+            padding: 75px 22px;
+            background:
+                radial-gradient(circle at 80% 20%, #754500 0%, transparent 35%),
+                linear-gradient(135deg, #181818, #050505);
+        }
+
+        .tag {
+            color: #ffb000;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffb000;
+        }
+
+        .hero p {
+            color: #aaa;
+            max-width: 550px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 22px;
+            background: #ffb000;
+            color: #111;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        section {
+            padding: 45px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .title {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .title span {
+            color: #ffb000;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .category {
+            padding: 22px;
+            background: #131313;
+            border: 1px solid #292929;
+            border-radius: 14px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .category:hover {
+            border-color: #ffb000;
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .search-box {
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #151515;
+            color: white;
+            outline: none;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .product {
+            background: #131313;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            background: linear-gradient(135deg, #222, #563300);
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .diamonds {
+            color: #65bfff;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .price {
+            color: #ffb000;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .buy {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            border-radius: 8px;
+            background: #ffb000;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .buy:hover {
+            background: #ffc53d;
+        }
+
+        .cart {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #ffb000;
+            color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2000;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -3px;
+            background: red;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 360px;
+            max-width: 90%;
+            height: 100vh;
+            background: #111;
+            z-index: 3000;
+            padding: 25px;
+            transition: .3s;
+            overflow-y: auto;
+            border-left: 1px solid #333;
+        }
+
+        .cart-panel.active {
+            right: 0;
+        }
+
+        .close-cart {
+            float: right;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #292929;
+        }
+
+        .cart-item strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .remove {
+            margin-top: 8px;
+            background: #c62828;
+            color: white;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .total {
+            margin: 25px 0;
+            font-size: 22px;
+            color: #ffb000;
+            font-weight: bold;
+        }
+
+        .checkout {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .checkout.active {
+            display: block;
+        }
+
+        .checkout input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 10px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .promo {
+            background: linear-gradient(135deg, #ffb000, #ff6800);
+            color: #111;
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #101010;
+            color: #777;
+        }
+
+        @media (min-width: 700px) {
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero {
+                padding-left: 10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🔥 FREE FIRE STORE GABON</div>
+
+    <div class="menu" id="menu">☰</div>
+
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="#accueil">Accueil</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#categories">Catégories</a>
+        <a href="#promotion">Promotions</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="accueil">
+    <div class="tag">FREE FIRE • GABON</div>
+
+    <h1>
+        RECHARGE TES<br>
+        <span>DIAMANTS.</span>
+    </h1>
+
+    <p>
+        Choisis ton offre, ajoute-la au panier et prépare ta commande
+        directement depuis notre boutique.
+    </p>
+
+    <a href="#boutique" class="button">
+        💎 Voir les diamants
+    </a>
+</section>
+
+
+<section id="categories">
+
+    <h2 class="title">
+        Explorer par <span>catégorie</span>
+    </h2>
+
+    <div class="categories">
+
+        <div class="category" onclick="filtrer('diamants')">
+            <div class="category-icon">💎</div>
+            <h3>Diamants</h3>
+        </div>
+
+        <div class="category" onclick="filtrer('packs')">
+            <div class="category-icon">🎁</div>
+            <h3>Packs</h3>
+        </div>
+
+        <div class="category" onclick="filtrer('promotion')">
+            <div class="category-icon">🔥</div>
+            <h3>Promotions</h3>
+        </div>
+
+        <div class="category" onclick="filtrer('booyah')">
+            <div class="category-icon">🏆</div>
+            <h3>Booyah Pass</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="boutique">
+
+    <h2 class="title">
+        Boutique <span>Diamants</span>
+    </h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Rechercher une offre..."
+        >
+    </div>
+
+    <div class="products" id="products"></div>
+
+</section>
+
+
+<section id="promotion">
+
+    <div class="promo">
+
+        <h2>🔥 PROMOTION</h2>
+
+        <p>
+            Certaines offres peuvent être proposées en quantité limitée.
+            Vérifie toujours le prix affiché avant de commander.
+        </p>
+
+        <br>
+
+        <strong>💎 Recharge rapide • Prix en FCFA</strong>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<div class="cart" id="cartButton">
+    🛒
+    <span class="cart-count" id="cartCount">0</span>
+</div>
+
+
+<div class="cart-panel" id="cartPanel">
+
+    <span class="close-cart" id="closeCart">×</span>
+
+    <h2>🛒 Mon panier</h2>
+
+    <br>
+
+    <div id="cartItems">
+        <p>Ton panier est vide.</p>
+    </div>
+
+    <div class="total">
+        Total : <span id="cartTotal">0</span> FCFA
+    </div>
+
+    <button class="button" id="checkoutButton">
+        Commander
+    </button>
+
+    <div class="checkout" id="checkout">
+
+        <h3>Informations de commande</h3>
+
+        <br>
+
+        <input
+            type="text"
+            id="playerId"
+            placeholder="ID joueur Free Fire"
+        >
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Nom"
+        >
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Numéro de téléphone"
+        >
+
+        <button class="button" id="orderButton">
+            Préparer ma commande
+        </button>
+
+        <p id="orderMessage"></p>
+
+    </div>
+
+</div>
+
+
+<footer id="contact">
+
+    © 2026 Free Fire Store Gabon
+
+    <br><br>
+
+    💬 Contact • Commandes • Assistance
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
