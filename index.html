@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Free Fire Store Gabon 🇬🇦 - Diamants, packs et Booyah Pass.">
+
+    <title>Free Fire Store Gabon 🇬🇦</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<div class="top-bar">
+    🇬🇦 SERVICE DISPONIBLE AU GABON
+</div>
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="#accueil" class="logo">
+            <span class="logo-fire">🔥</span>
+
+            <span>
+                <strong>FREE FIRE</strong>
+                <small>STORE GABON</small>
+            </span>
+        </a>
+
+        <nav class="nav">
+
+            <a href="#accueil">Accueil</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#promotions">Promotions</a>
+            <a href="#comment">Comment acheter</a>
+            <a href="#avis">Avis</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button id="open-cart" class="cart-button">
+                🛒
+                <span id="cart-count">0</span>
+            </button>
+
+            <button id="menu-button" class="menu-button">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+
+        <a href="#accueil">🏠 Accueil</a>
+        <a href="#boutique">🛒 Boutique</a>
+        <a href="#diamants">💎 Diamants</a>
+        <a href="#packs">📦 Packs</a>
+        <a href="#promotions">🔥 Promotions</a>
+        <a href="#booyah">🎟️ Booyah Pass</a>
+        <a href="#comment">❓ Comment acheter</a>
+        <a href="#avis">⭐ Avis</a>
+        <a href="#contact">📞 Contact</a>
+
+    </div>
+
+</header>
+
+
+<!-- ================= ACCUEIL ================= -->
+
+<section id="accueil" class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🇬🇦 FREE FIRE STORE GABON
+        </div>
+
+        <h1>
+            RECHARGE TES
+            <span>DIAMANTS</span>
+        </h1>
+
+        <p>
+            Retrouve tes offres Free Fire et prépare
+            ta commande directement depuis ton téléphone.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn-primary"
+                data-scroll="boutique">
+                💎 VOIR LES OFFRES
+            </button>
+
+            <button
+                class="btn-secondary"
+                data-scroll="comment">
+                ❓ COMMENT ÇA MARCHE ?
+            </button>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+                <strong>12+</strong>
+                <span>Offres</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>Commandes</span>
+            </div>
+
+            <div>
+                <strong>🇬🇦</strong>
+                <span>Gabon</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOUTIQUE ================= -->
+
+<section id="boutique" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>SHOP</span>
+
+            <h2>Notre Boutique</h2>
+
+            <p>
+                Choisis ton offre et ajoute-la au panier.
+            </p>
+
+        </div>
+
+
+        <div class="shop-tools">
+
+            <div class="search">
+
+                🔎
+
+                <input
+                    id="search"
+                    type="text"
+                    placeholder="Rechercher une offre...">
+
+            </div>
+
+
+            <div class="categories">
+
+                <button
+                    class="category active"
+                    data-category="all">
+                    Tous
+                </button>
+
+                <button
+                    class="category"
+                    data-category="diamants">
+                    💎 Diamants
+                </button>
+
+                <button
+                    class="category"
+                    data-category="packs">
+                    📦 Packs
+                </button>
+
+                <button
+                    class="category"
+                    data-category="promotions">
+                    🔥 Promotions
+                </button>
+
+                <button
+                    class="category"
+                    data-category="booyah">
+                    🎟️ Booyah
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="products" class="products"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DIAMANTS ================= -->
+
+<section id="diamants" class="section dark">
+
+    <div class="container">
+
+        <div class="section-title dark-title">
+
+            <span>DIAMONDS</span>
+
+            <h2>💎 Diamants</h2>
+
+            <p>
+                Nos offres de diamants disponibles.
+            </p>
+
+        </div>
+
+        <div id="diamants-products" class="mini-products"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PACKS ================= -->
+
+<section id="packs" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>PACKS</span>
+
+            <h2>📦 Packs Diamants</h2>
+
+            <p>
+                Découvre nos différents packs.
+            </p>
+
+        </div>
+
+        <div id="packs-products" class="mini-products"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROMOTIONS ================= -->
+
+<section id="promotions" class="section promotion">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>OFFRES</span>
+
+            <h2>🔥 Promotions</h2>
+
+            <p>
+                Les offres promotionnelles disponibles.
+            </p>
+
+        </div>
+
+        <div id="promotion-products" class="mini-products"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOYAH ================= -->
+
+<section id="booyah" class="section dark">
+
+    <div class="container">
+
+        <div class="booyah">
+
+            <div>
+
+                <span>SAISON</span>
+
+                <h2>🎟️ Booyah Pass</h2>
+
+                <p>
+                    Retrouve ton Booyah Pass
+                    dans notre boutique.
+                </p>
+
+                <button
+                    class="btn-primary"
+                    data-product="5">
+                    ACHETER LE BOOYAH PASS
+                </button>
+
+            </div>
+
+            <div class="booyah-visual">
+                🎟️
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COMMENT ACHETER ================= -->
+
+<section id="comment" class="section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>GUIDE</span>
+
+            <h2>Comment acheter ?</h2>
+
+            <p>
+                Suis simplement ces étapes.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <b>01</b>
+                <h3>Choisir</h3>
+                <p>
+                    Choisis ton offre.
+                </p>
+            </div>
+
+            <div class="step">
+                <b>02</b>
+                <h3>Ajouter</h3>
+                <p>
+                    Ajoute-la au panier.
+                </p>
+            </div>
+
+            <div class="step">
+                <b>03</b>
+                <h3>ID Free Fire</h3>
+                <p>
+                    Renseigne ton ID.
+                </p>
+            </div>
+
+            <div class="step">
+                <b>04</b>
+                <h3>Commander</h3>
+                <p>
+                    Prépare ta commande.
+                </p>
+            </div>
+
+            <div class="step">
+                <b>05</b>
+                <h3>Vérifier</h3>
+                <p>
+                    Vérifie les informations.
+                </p>
+            </div>
+
+            <div class="step">
+                <b>06</b>
+                <h3>WhatsApp</h3>
+                <p>
+                    Envoie la commande.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AVIS ================= -->
+
+<section id="avis" class="section reviews">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>CLIENTS</span>
+
+            <h2>⭐ Avis clients</h2>
+
+            <p>
+                Quelques témoignages.
+            </p>
+
+        </div>
+
+
+        <div class="review-grid">
+
+            <div class="review">
+                <div>⭐⭐⭐⭐⭐</div>
+
+                <p>
+                    « Commande simple et rapide. »
+                </p>
+
+                <strong>
+                    Client Gabon
+                </strong>
+
+            </div>
+
+            <div class="review">
+                <div>⭐⭐⭐⭐⭐</div>
+
+                <p>
+                    « Le système de panier est pratique. »
+                </p>
+
+                <strong>
+                    Joueur Free Fire
+                </strong>
+
+            </div>
+
+            <div class="review">
+                <div>⭐⭐⭐⭐⭐</div>
+
+                <p>
+                    « J'ai trouvé facilement mon offre. »
+                </p>
+
+                <strong>
+                    Client
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="section dark">
+
+    <div class="container">
+
+        <div class="contact">
+
+            <div>
+
+                <span>CONTACT</span>
+
+                <h2>
+                    Besoin d'aide ?
+                </h2>
+
+                <p>
+                    Contacte-nous directement
+                    pour une question concernant
+                    une commande.
+                </p>
+
+            </div>
+
+            <a
+                href="https://wa.me/24177629944"
+                target="_blank"
+                class="whatsapp">
+                📲 CONTACTER SUR WHATSAPP
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PANIER ================= -->
+
+<div id="overlay" class="overlay"></div>
+
+<aside id="cart" class="cart">
+
+    <div class="cart-header">
+
+        <div>
+            <small>TON PANIER</small>
+            <h2>🛒 Commande</h2>
+        </div>
+
+        <button id="close-cart">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cart-items" class="cart-items"></div>
+
+
+    <div class="cart-footer">
+
+        <div class="total">
+
+            <span>Total</span>
+
+            <strong id="cart-total">
+                0 FCFA
+            </strong>
+
+        </div>
+
+        <button
+            id="checkout"
+            class="btn-primary full">
+            CONTINUER
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MODALE COMMANDE ================= -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-box">
+
+        <button id="close-modal" class="modal-close">
+            ×
+        </button>
+
+        <span>FINALISATION</span>
+
+        <h2>
+            Préparer ma commande
+        </h2>
+
+        <p>
+            Renseigne tes informations.
+        </p>
+
+
+        <form id="order-form">
+
+            <label>
+                ID Free Fire
+            </label>
+
+            <input
+                id="ff-id"
+                type="text"
+                placeholder="Ex : 123456789"
+                required>
+
+
+            <label>
+                Nom
+            </label>
+
+            <input
+                id="client-name"
+                type="text"
+                placeholder="Ton nom"
+                required>
+
+
+            <label>
+                Numéro WhatsApp
+            </label>
+
+            <input
+                id="client-phone"
+                type="tel"
+                placeholder="077 XX XX XX"
+                required>
+
+
+            <div class="form-total">
+
+                <span>Total</span>
+
+                <strong id="form-total">
+                    0 FCFA
+                </strong>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="whatsapp full">
+                📲 ENVOYER SUR WHATSAPP
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div id="toast" class="toast">
+    <span id="toast-text">
+        Produit ajouté
+    </span>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <h3>
+                🔥 FREE FIRE STORE GABON
+            </h3>
+
+            <p>
+                Boutique destinée aux joueurs
+                au Gabon.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Navigation
+            </h4>
+
+            <a href="#accueil">Accueil</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#promotions">Promotions</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Assistance
+            </h4>
+
+            <a href="#comment">
+                Comment acheter
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a
+                href="https://wa.me/24177629944"
+                target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        🇬🇦 Service disponible au Gabon
+
+        <br>
+
+        © 2026 Free Fire Store Gabon
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
