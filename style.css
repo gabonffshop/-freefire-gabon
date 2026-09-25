@@ -1896,3 +1896,26 @@ main {
     }
 
 }
+.sasuke-banner {
+    width: min(100% - 32px, 1100px);
+    margin: 30px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 145, 0, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.sasuke-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .sasuke-banner {
+        width: calc(100% - 20px);
+        margin: 20px auto;
+        border-radius: 16px;
+    }
+}
