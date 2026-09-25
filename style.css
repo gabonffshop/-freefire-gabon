@@ -1920,3 +1920,23 @@ main {
     }
 }
 
+/* VIDEO */
+
+.video-card {
+    overflow: hidden;
+
+    border: 1px solid #282828;
+    border-radius: 20px;
+
+    background: #111;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.35);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+
+    background: #000;
+}
