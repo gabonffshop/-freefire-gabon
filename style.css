@@ -1919,3 +1919,11 @@ main {
         border-radius: 16px;
     }
 }
+/* Espace pour la barre de navigation fixe */
+body {
+    padding-bottom: 110px;
+}
+
+.sasuke-banner {
+    margin-bottom: 130px;
+}
