@@ -1159,14 +1159,14 @@ loadCart();
 updateCart();
 
 
-/* SYNCHRO LIEN CONTACT (même numéro que le checkout) */
+/* SYNCHRO LIEN CONTACT (numéro du centre d'aide/support, distinct du numéro de commande) */
 
 document
     .querySelectorAll('a[href^="https://wa.me/"]')
     .forEach(link => {
 
         link.href =
-            "https://wa.me/" + WHATSAPP_NUMBER;
+            "https://wa.me/" + HELP_WHATSAPP_NUMBER;
 
     });
 
