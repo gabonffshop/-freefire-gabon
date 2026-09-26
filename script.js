@@ -147,9 +147,6 @@ const headerCount =
 const bottomCount =
     document.getElementById("bottom-count");
 
-const featured =
-    document.getElementById("featured-products");
-
 const shopProducts =
     document.getElementById("shop-products");
 
@@ -338,11 +335,6 @@ function render(container, list) {
 /* INITIAL PRODUCTS */
 
 function renderAll() {
-
-    render(
-        featured,
-        products.slice(0, 4)
-    );
 
     render(
         shopProducts,
