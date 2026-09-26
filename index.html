@@ -380,6 +380,12 @@
                     <small>Assistance WhatsApp</small>
                 </button>
 
+                <button data-screen="help">
+                    <span>🆘</span>
+                    <b>Centre d'aide</b>
+                    <small>Diamants non reçus ?</small>
+                </button>
+
             </div>
 
         </section>
@@ -500,6 +506,73 @@
                     class="whatsapp-button">
                     OUVRIR WHATSAPP →
                 </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- HELP CENTER -->
+        <section class="screen" id="screen-help">
+
+            <div class="screen-heading">
+                <div>
+                    <small>ASSISTANCE</small>
+                    <h1>🆘 Centre d'aide</h1>
+                </div>
+            </div>
+
+            <div class="help-card">
+
+                <p class="help-intro">
+                    Commande envoyée mais diamants
+                    non reçus ? Décris ton problème,
+                    on va essayer de t'aider.
+                </p>
+
+                <textarea
+                    id="help-input"
+                    rows="3"
+                    placeholder="Ex : j'ai commandé il y a 20 min et je n'ai toujours rien reçu..."></textarea>
+
+                <button
+                    id="help-submit"
+                    class="main-button full">
+                    🔍 Voir une solution
+                </button>
+
+                <p class="help-number">
+                    📞 Assistance directe : +1 561-600-4442
+                </p>
+
+            </div>
+
+            <div class="help-result" id="help-result">
+
+                <h3>Voici ce que tu peux vérifier :</h3>
+
+                <ul>
+                    <li>La livraison prend normalement moins de 10 minutes après le paiement confirmé.</li>
+                    <li>Vérifie que l'ID Free Fire donné à la commande est correct.</li>
+                    <li>Vérifie que le paiement Moov Money a bien été validé de ton côté.</li>
+                    <li>Regarde si un message de confirmation est arrivé sur WhatsApp.</li>
+                </ul>
+
+                <p class="help-question">
+                    Cette solution t'a aidé ?
+                </p>
+
+                <div class="help-choices">
+
+                    <button id="help-yes" class="help-btn-yes">
+                        Oui, merci 🙌
+                    </button>
+
+                    <button id="help-no" class="help-btn-no">
+                        Non, contacter le support
+                    </button>
+
+                </div>
 
             </div>
 
