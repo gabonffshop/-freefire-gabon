@@ -246,7 +246,18 @@ function productArt(product) {
             <img
                 src="IMG_1699.jpeg"
                 alt="Diamants Free Fire"
-                class="diamond-photo">
+                class="product-photo diamond-photo">
+        `;
+
+    }
+
+    if (product.category === "packs") {
+
+        return `
+            <img
+                src="IMG_1700.webp"
+                alt="Pack de Diamants Free Fire"
+                class="product-photo pack-photo">
         `;
 
     }
