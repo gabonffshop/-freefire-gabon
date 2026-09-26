@@ -243,9 +243,10 @@ function productArt(product) {
     if (product.category === "diamants") {
 
         return `
-            <div class="art-diamond">
-                <span>◆</span>
-            </div>
+            <img
+                src="IMG_1699.jpeg"
+                alt="Diamants Free Fire"
+                class="diamond-photo">
         `;
 
     }
