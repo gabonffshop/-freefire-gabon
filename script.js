@@ -262,6 +262,28 @@ function productArt(product) {
 
     }
 
+    if (product.category === "booyah") {
+
+        return `
+            <img
+                src="IMG_1702.jpeg"
+                alt="Booyah Pass Free Fire"
+                class="product-photo booyah-photo">
+        `;
+
+    }
+
+    if (product.category === "promotions") {
+
+        return `
+            <img
+                src="IMG_1703.jpeg"
+                alt="Promotion Free Fire"
+                class="product-photo promo-photo">
+        `;
+
+    }
+
     return productIcon(product);
 
 }
