@@ -8,6 +8,10 @@
 
 const WHATSAPP_NUMBER = "24177629944";
 
+/* NUMÉRO WHATSAPP DU CENTRE D'AIDE (support après-vente, distinct du numéro de commande) */
+
+const HELP_WHATSAPP_NUMBER = "15616004442";
+
 
 /* PRODUITS */
 
@@ -1150,3 +1154,90 @@ document.addEventListener("keydown", event => {
     }
 
 });
+
+
+/* CENTRE D'AIDE */
+
+const helpInput =
+    document.getElementById("help-input");
+
+const helpResult =
+    document.getElementById("help-result");
+
+const helpSubmit =
+    document.getElementById("help-submit");
+
+const helpYes =
+    document.getElementById("help-yes");
+
+const helpNo =
+    document.getElementById("help-no");
+
+
+if (helpSubmit) {
+
+    helpSubmit.addEventListener("click", () => {
+
+        helpResult.classList.add("show");
+
+        helpResult.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+}
+
+
+if (helpYes) {
+
+    helpYes.addEventListener("click", () => {
+
+        helpResult.classList.remove("show");
+
+        helpInput.value = "";
+
+        showToast(
+            "Content d'avoir pu t'aider 🙌"
+        );
+
+    });
+
+}
+
+
+if (helpNo) {
+
+    helpNo.addEventListener("click", () => {
+
+        const problem =
+            helpInput.value.trim() ||
+            "Diamants non reçus après ma commande.";
+
+        let message =
+            `🆘 CENTRE D'AIDE — FREE FIRE STORE GABON 🇬🇦\n\n`;
+
+        message +=
+            `Problème décrit :\n${problem}\n\n`;
+
+        message +=
+            `J'ai déjà essayé les solutions proposées, `;
+
+        message +=
+            `merci de m'aider directement.`;
+
+        const url =
+            "https://wa.me/" +
+            HELP_WHATSAPP_NUMBER +
+            "?text=" +
+            encodeURIComponent(message);
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    });
+
+}
