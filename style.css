@@ -788,13 +788,11 @@ main {
     object-position: center;
 }
 
-.pack-photo {
-    width: 100%;
-    height: 100%;
+.booyah-photo {
+    object-position: center;
+}
 
-    display: block;
-
-    object-fit: cover;
+.promo-photo {
     object-position: center;
 }
 
