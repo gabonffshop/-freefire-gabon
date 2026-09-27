@@ -882,6 +882,12 @@ main {
         0 15px 45px rgba(0,0,0,.35);
 }
 
+.product:active {
+    transform: scale(.97);
+
+    border-color: rgba(255,101,0,.6);
+}
+
 .product-art {
     height: 145px;
 
@@ -986,6 +992,12 @@ main {
     color: white;
 
     font-size: 18px;
+
+    transition: transform .15s;
+}
+
+.product-add:active {
+    transform: scale(.85);
 }
 
 
@@ -1095,22 +1107,22 @@ main {
             rgba(255,101,0,.35),
             transparent 35%
         ),
-        #101010;
+        url('IMG_1702.jpeg')
+        center / cover;
 }
 
-.booyah-art {
+.booyah-overlay {
     position: absolute;
+    inset: 0;
 
-    right: 8%;
+    z-index: 1;
 
-    font-size: 190px;
-
-    filter:
-        drop-shadow(
-            0 0 35px rgba(255,101,0,.4)
+    background:
+        linear-gradient(
+            100deg,
+            rgba(8,8,8,.94) 40%,
+            rgba(8,8,8,.35)
         );
-
-    animation: floating 3s ease-in-out infinite;
 }
 
 .booyah-text {
@@ -1227,6 +1239,24 @@ main {
     background: #111;
 
     overflow: hidden;
+
+    animation: fadeInUp .5s ease both;
+}
+
+.steps article:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.steps article:nth-child(2) {
+    animation-delay: .08s;
+}
+
+.steps article:nth-child(3) {
+    animation-delay: .16s;
+}
+
+.steps article:nth-child(4) {
+    animation-delay: .24s;
 }
 
 .steps strong {
@@ -1264,40 +1294,23 @@ main {
 
 /* REVIEWS */
 
-.reviews {
-    display: grid;
+.reviews-empty {
+    padding: 40px 20px;
 
-    grid-template-columns: repeat(3,1fr);
+    text-align: center;
 
-    gap: 15px;
+    color: #888;
 }
 
-.reviews article {
-    padding: 22px;
+.reviews-empty-icon {
+    font-size: 40px;
 
-    border: 1px solid #292929;
-    border-radius: 18px;
-
-    background: #111;
+    margin-bottom: 14px;
 }
 
-.reviews article div {
-    color: var(--orange);
-
-    letter-spacing: 3px;
-}
-
-.reviews p {
-    margin: 18px 0;
-
-    color: #aaa;
-
+.reviews-empty p {
     font-size: 13px;
     line-height: 1.6;
-}
-
-.reviews b {
-    font-size: 11px;
 }
 
 
@@ -1322,12 +1335,28 @@ main {
         #111;
 
     text-align: center;
+
+    animation: fadeInUp .5s ease both;
 }
 
 .contact-art {
-    font-size: 70px;
+    width: 72px;
+    height: 72px;
 
-    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    font-size: 32px;
+
+    box-shadow: 0 10px 30px rgba(255,101,0,.3);
 }
 
 .contact-card h1 {
@@ -1367,6 +1396,10 @@ main {
 
 .whatsapp-button:hover {
     transform: translateY(-3px);
+}
+
+.whatsapp-button:active {
+    transform: scale(.96);
 }
 
 
@@ -2177,8 +2210,7 @@ main {
         grid-template-columns: repeat(2,1fr);
     }
 
-    .more-grid,
-    .reviews {
+    .more-grid {
         grid-template-columns: 1fr;
     }
 
@@ -2186,13 +2218,6 @@ main {
         min-height: 550px;
         padding: 28px;
         align-items: flex-end;
-    }
-
-    .booyah-art {
-        top: 40px;
-        right: 20px;
-
-        font-size: 130px;
     }
 
 }
