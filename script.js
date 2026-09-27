@@ -1035,7 +1035,7 @@ document.getElementById(
         `🔥 COMMANDE FREE FIRE STORE GABON 🇬🇦\n\n`;
 
     message +=
-        `👤 Nom : ${name}\n`;
+        `👤 Pseudo : ${name}\n`;
 
     message +=
         `🎮 ID Free Fire : ${ffId}\n`;
