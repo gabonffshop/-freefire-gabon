@@ -59,6 +59,8 @@ a {
     align-items: center;
     justify-content: center;
 
+    overflow: hidden;
+
     background: #050505;
 
     transition: .6s;
@@ -69,12 +71,40 @@ a {
     visibility: hidden;
 }
 
+.loader-glow {
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,101,0,.25),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    animation: loaderPulse 2s ease-in-out infinite alternate;
+}
+
 .loader-logo {
+    position: relative;
+
     font-size: 70px;
+
+    filter:
+        drop-shadow(0 0 25px rgba(255,101,0,.5));
+
     animation: loaderPulse 1s infinite alternate;
 }
 
 .loader-title {
+    position: relative;
+
     margin-top: 15px;
 
     font-size: 15px;
@@ -82,13 +112,28 @@ a {
     letter-spacing: 3px;
 }
 
-.loader-bar {
-    width: 170px;
-    height: 3px;
+.loader-subtitle {
+    position: relative;
 
-    margin-top: 25px;
+    margin-top: 4px;
+
+    color: var(--orange);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.loader-bar {
+    position: relative;
+
+    width: 170px;
+    height: 4px;
+
+    margin-top: 28px;
 
     overflow: hidden;
+    border-radius: 10px;
 
     background: #292929;
 }
@@ -98,7 +143,14 @@ a {
     width: 45%;
     height: 100%;
 
-    background: var(--orange);
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--orange2)
+        );
 
     animation: loader 1.2s infinite;
 }
