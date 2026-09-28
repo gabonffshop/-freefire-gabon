@@ -372,22 +372,7 @@ function render(container, list) {
 
 /* INITIAL PRODUCTS */
 
-const homeFeatured =
-    document.getElementById("home-featured");
-
 function renderAll() {
-
-    if (homeFeatured) {
-
-        render(
-            homeFeatured,
-            products.filter(p =>
-                ["POPULAIRE", "BEST", "SUPER", "PROMO"]
-                    .includes(p.badge)
-            )
-        );
-
-    }
 
     render(
         shopProducts,
