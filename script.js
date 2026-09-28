@@ -372,7 +372,22 @@ function render(container, list) {
 
 /* INITIAL PRODUCTS */
 
+const homeFeatured =
+    document.getElementById("home-featured");
+
 function renderAll() {
+
+    if (homeFeatured) {
+
+        render(
+            homeFeatured,
+            products.filter(p =>
+                ["POPULAIRE", "BEST", "SUPER", "PROMO"]
+                    .includes(p.badge)
+            )
+        );
+
+    }
 
     render(
         shopProducts,
@@ -400,6 +415,18 @@ renderAll();
 
 /* NAVIGATION */
 
+/* écran -> bouton de la barre du bas à allumer */
+
+const NAV_PARENT = {
+    packs: "shop",
+    promos: "shop",
+    booyah: "shop",
+    how: "more",
+    reviews: "more",
+    contact: "more",
+    help: "more"
+};
+
 function openScreen(name) {
 
     screens.forEach(screen => {
@@ -419,15 +446,15 @@ function openScreen(name) {
 
     }
 
+    const navTarget =
+        NAV_PARENT[name] || name;
+
     bottomItems.forEach(item => {
 
-        item.classList.remove("active");
-
-        if (
-            item.dataset.screen === name
-        ) {
-            item.classList.add("active");
-        }
+        item.classList.toggle(
+            "active",
+            item.dataset.screen === navTarget
+        );
 
     });
 
@@ -484,6 +511,25 @@ searchOpen.addEventListener("click", () => {
 searchClose.addEventListener("click", () => {
 
     searchPanel.classList.remove("open");
+
+    if (searchInput.value) {
+
+        searchInput.value = "";
+
+        const activeTab =
+            document.querySelector(".tab.active");
+
+        const filter =
+            activeTab ? activeTab.dataset.filter : "all";
+
+        render(
+            shopProducts,
+            products.filter(
+                p => matchesCategory(p, filter)
+            )
+        );
+
+    }
 
 });
 
@@ -799,7 +845,7 @@ function updateCart() {
         row.innerHTML = `
 
             <div class="cart-art">
-                ${productIcon(item)}
+                ${productArt(item)}
             </div>
 
             <div>
@@ -967,6 +1013,34 @@ document.getElementById(
         "checkout-total"
     ).textContent =
         price(cartTotal());
+
+    document.getElementById(
+        "checkout-items"
+    ).innerHTML =
+        cart.map(item => `
+
+            <div class="checkout-item">
+
+                <div class="checkout-item-thumb">
+                    ${productArt(item)}
+                </div>
+
+                <div class="checkout-item-info">
+                    <span class="checkout-item-name">
+                        ${item.name}
+                    </span>
+                    <span class="checkout-item-qty">
+                        x${item.quantity}
+                    </span>
+                </div>
+
+                <strong class="checkout-item-price">
+                    ${price(item.price * item.quantity)}
+                </strong>
+
+            </div>
+
+        `).join("");
 
     cartModal.classList.remove("open");
 
@@ -1276,3 +1350,34 @@ if (helpNo) {
 
 }
 
+
+/* FAQ */
+
+document.querySelectorAll(".faq-question")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            button
+                .closest(".faq-item")
+                .classList.toggle("open");
+
+        });
+
+    });
+
+
+/* BOUTONS "ACHETER" (ex : Booyah Pass) */
+
+document.addEventListener("click", event => {
+
+    const button =
+        event.target.closest("[data-product]");
+
+    if (!button) return;
+
+    openProduct(
+        Number(button.dataset.product)
+    );
+
+});
