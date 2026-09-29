@@ -12,7 +12,6 @@
 
     <link rel="canonical" href="https://gabonffshop.pages.dev/">
 
-    <!-- Aperçu quand le lien est partagé (WhatsApp, Facebook...) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="FREE FIRE STORE GABON">
     <meta property="og:description" content="Diamants, packs et Booyah Pass Free Fire. Commande en quelques secondes, livraison via WhatsApp 🇬🇦.">
@@ -21,7 +20,6 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- Aperçu Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FREE FIRE STORE GABON">
     <meta name="twitter:description" content="Diamants, packs et Booyah Pass Free Fire. Commande en quelques secondes, livraison via WhatsApp 🇬🇦.">
@@ -30,6 +28,57 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- STYLE VÉRIFICATION JOUEUR -->
+    <style>
+        .ff-player-result {
+            margin: -4px 0 18px;
+            min-height: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .ff-player-success {
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(53, 208, 127, 0.10);
+            border: 1px solid rgba(53, 208, 127, 0.25);
+        }
+
+        .ff-player-success span {
+            display: block;
+            color: #35d07f;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .ff-player-success strong {
+            display: block;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .ff-player-loading {
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.06);
+            color: #aaa;
+        }
+
+        .ff-player-error {
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 77, 77, 0.10);
+            border: 1px solid rgba(255, 77, 77, 0.20);
+            color: #ff6666;
+        }
+
+        .ff-player-error small {
+            display: block;
+            margin-top: 3px;
+            color: #aaa;
+        }
+    </style>
 
     <script type="application/ld+json">
     {
@@ -66,10 +115,8 @@
     </div>
 </div>
 
-
 <!-- APP -->
 <div id="app">
-
 
     <!-- HEADER -->
     <header class="app-header">
@@ -97,7 +144,6 @@
 
     </header>
 
-
     <!-- SEARCH -->
     <div class="search-panel" id="search-panel">
 
@@ -114,15 +160,12 @@
 
     </div>
 
-
     <!-- MAIN -->
     <main>
-
 
         <!-- HOME -->
         <section class="screen active" id="screen-home">
 
-            <!-- HERO -->
             <div class="hero-card">
 
                 <video
@@ -136,7 +179,6 @@
                 </video>
 
                 <div class="hero-overlay"></div>
-
                 <div class="hero-glow"></div>
 
                 <div class="hero-content">
@@ -187,7 +229,11 @@
                         </span>
 
                         <span class="trust-chip">
-                            <img src="IMG_1728.jpeg" alt="Moov Money" class="moov-logo" onerror="this.style.display='none'">
+                            <img
+                                src="IMG_1728.jpeg"
+                                alt="Moov Money"
+                                class="moov-logo"
+                                onerror="this.style.display='none'">
                             Paiement Moov Money
                         </span>
 
@@ -196,7 +242,6 @@
                 </div>
 
             </div>
-
 
             <!-- CATÉGORIES -->
             <div class="section-head home-head">
@@ -239,7 +284,6 @@
 
             </div>
 
-
             <!-- BANNIÈRE SONS -->
             <button class="sound-banner" data-screen="sounds">
 
@@ -251,7 +295,9 @@
                 <span class="sb-text">
                     <small>NOUVEAU</small>
                     <b>Sons Free Fire &amp; Mythiques</b>
-                    <span class="sb-sub">Écoute et télécharge gratuitement</span>
+                    <span class="sb-sub">
+                        Écoute et télécharge gratuitement
+                    </span>
                 </span>
 
                 <span class="sb-eq" aria-hidden="true">
@@ -259,7 +305,6 @@
                 </span>
 
             </button>
-
 
             <!-- COMMENT ÇA MARCHE -->
             <button class="how-strip" data-screen="how">
@@ -281,13 +326,14 @@
 
             </button>
 
-
             <!-- VIDÉO -->
             <div class="section-head home-head">
+
                 <div>
                     <small>DÉCOUVRE</small>
                     <h2>l'événement Naruto</h2>
                 </div>
+
             </div>
 
             <div class="video-card">
@@ -296,7 +342,6 @@
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
             </div>
-
 
             <!-- AVIS -->
             <div class="section-head home-head">
@@ -316,25 +361,28 @@
 
                 <div class="home-review-card">
                     <div class="review-stars">★★★★★</div>
+
                     <p>
                         « Au début je pensais que c'était
                         une arnaque 😂 mais j'ai bien reçu
                         mes diamants, merci ! »
                     </p>
+
                     <b>Gloire</b>
                 </div>
 
                 <div class="home-review-card">
                     <div class="review-stars">★★★★☆</div>
+
                     <p>
                         « C'est bien, merci ! J'ai bien
                         reçu mes diamants. »
                     </p>
+
                     <b>Sami</b>
                 </div>
 
             </div>
-
 
             <!-- AIDE -->
             <button class="help-banner" data-screen="help">
@@ -352,7 +400,6 @@
 
         </section>
 
-
         <!-- SHOP -->
         <section class="screen" id="screen-shop">
 
@@ -368,7 +415,6 @@
                 </button>
 
             </div>
-
 
             <div class="category-tabs">
 
@@ -394,11 +440,9 @@
 
             </div>
 
-
             <div id="shop-products" class="product-grid"></div>
 
         </section>
-
 
         <!-- PACKS -->
         <section class="screen" id="screen-packs">
@@ -415,7 +459,6 @@
             <div id="packs-products" class="product-grid"></div>
 
         </section>
-
 
         <!-- PROMOTIONS -->
         <section class="screen" id="screen-promos">
@@ -437,7 +480,6 @@
 
         </section>
 
-
         <!-- BOOYAH -->
         <section class="screen" id="screen-booyah">
 
@@ -449,7 +491,10 @@
 
                     <small>SAISON</small>
 
-                    <h1>BOOYAH<br><span>PASS</span></h1>
+                    <h1>
+                        BOOYAH<br>
+                        <span>PASS</span>
+                    </h1>
 
                     <p>
                         Ton pass de saison directement
@@ -468,17 +513,17 @@
 
         </section>
 
-
         <!-- ABOUT -->
         <section class="screen" id="screen-more">
 
             <div class="screen-heading">
+
                 <div>
                     <small>INFORMATIONS</small>
                     <h1>Plus</h1>
                 </div>
-            </div>
 
+            </div>
 
             <div class="more-grid">
 
@@ -510,22 +555,23 @@
 
         </section>
 
-
         <!-- HOW -->
         <section class="screen" id="screen-how">
 
             <div class="screen-heading">
+
                 <div>
                     <small>GUIDE</small>
                     <h1>Comment acheter ?</h1>
                 </div>
-            </div>
 
+            </div>
 
             <div class="timeline">
 
                 <div class="timeline-item">
                     <div class="timeline-marker">1</div>
+
                     <div class="timeline-content">
                         <span>🛍️</span>
                         <h3>Choisis</h3>
@@ -535,6 +581,7 @@
 
                 <div class="timeline-item">
                     <div class="timeline-marker">2</div>
+
                     <div class="timeline-content">
                         <span>🛒</span>
                         <h3>Ajoute</h3>
@@ -544,6 +591,7 @@
 
                 <div class="timeline-item">
                     <div class="timeline-marker">3</div>
+
                     <div class="timeline-content">
                         <span>🎮</span>
                         <h3>Renseigne</h3>
@@ -553,10 +601,14 @@
 
                 <div class="timeline-item">
                     <div class="timeline-marker">4</div>
+
                     <div class="timeline-content">
                         <span>📲</span>
                         <h3>Commande</h3>
-                        <p>Prépare ta commande WhatsApp et paie via Moov Money.</p>
+                        <p>
+                            Prépare ta commande WhatsApp
+                            et paie via Moov Money.
+                        </p>
                     </div>
                 </div>
 
@@ -564,23 +616,25 @@
 
         </section>
 
-
         <!-- REVIEWS -->
         <section class="screen" id="screen-reviews">
 
             <div class="screen-heading">
+
                 <div>
                     <small>COMMUNAUTÉ</small>
                     <h1>⭐ Avis clients</h1>
                 </div>
-            </div>
 
+            </div>
 
             <div class="reviews-list">
 
                 <article class="review-item">
 
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
 
                     <p class="review-text">
                         « Au début je pensais que c'était
@@ -589,26 +643,34 @@
                         de la pub pour vous. »
                     </p>
 
-                    <b class="review-author">Gloire</b>
+                    <b class="review-author">
+                        Gloire
+                    </b>
 
                 </article>
 
                 <article class="review-item">
 
-                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-stars">
+                        ★★★★☆
+                    </div>
 
                     <p class="review-text">
                         « J'aimerais bien un truc
                         pas cher pour moi aussi. »
                     </p>
 
-                    <b class="review-author">Jeremi</b>
+                    <b class="review-author">
+                        Jeremi
+                    </b>
 
                 </article>
 
                 <article class="review-item">
 
-                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-stars">
+                        ★★★★☆
+                    </div>
 
                     <p class="review-text">
                         « C'est bien, merci ! Mais il
@@ -617,14 +679,15 @@
                         reçu mes diamants, merci. »
                     </p>
 
-                    <b class="review-author">Sami</b>
+                    <b class="review-author">
+                        Sami
+                    </b>
 
                 </article>
 
             </div>
 
         </section>
-
 
         <!-- CONTACT -->
         <section class="screen" id="screen-contact">
@@ -655,20 +718,23 @@
 
         </section>
 
-
         <!-- HELP CENTER -->
         <section class="screen" id="screen-help">
 
             <div class="screen-heading">
+
                 <div>
                     <small>ASSISTANCE</small>
                     <h1>🆘 Centre d'aide</h1>
                 </div>
+
             </div>
 
             <div class="help-card">
 
-                <div class="help-icon">🆘</div>
+                <div class="help-icon">
+                    🆘
+                </div>
 
                 <h2 class="help-title">
                     Un souci avec ta commande ?
@@ -707,22 +773,26 @@
 
                     <li>
                         <span>⏱️</span>
-                        La livraison prend normalement moins de 10 minutes après le paiement confirmé.
+                        La livraison prend normalement moins
+                        de 10 minutes après le paiement confirmé.
                     </li>
 
                     <li>
                         <span>🎮</span>
-                        Vérifie que l'ID Free Fire donné à la commande est correct.
+                        Vérifie que l'ID Free Fire donné à la
+                        commande est correct.
                     </li>
 
                     <li>
                         <span>💳</span>
-                        Vérifie que le paiement Moov Money a bien été validé de ton côté.
+                        Vérifie que le paiement Moov Money
+                        a bien été validé de ton côté.
                     </li>
 
                     <li>
                         <span>📱</span>
-                        Regarde si un message de confirmation est arrivé sur WhatsApp.
+                        Regarde si un message de confirmation
+                        est arrivé sur WhatsApp.
                     </li>
 
                 </ul>
@@ -733,18 +803,21 @@
 
                 <div class="help-choices">
 
-                    <button id="help-yes" class="help-btn-yes">
+                    <button
+                        id="help-yes"
+                        class="help-btn-yes">
                         Oui, merci 🙌
                     </button>
 
-                    <button id="help-no" class="help-btn-no">
+                    <button
+                        id="help-no"
+                        class="help-btn-no">
                         Non, contacter le support
                     </button>
 
                 </div>
 
             </div>
-
 
             <!-- FAQ -->
             <div class="faq-section">
@@ -812,8 +885,8 @@
 
                     <div class="faq-answer">
                         <p>
-                            Oui, le service est
-                            destiné à tout le Gabon.
+                            Oui, le service est destiné
+                            à tout le Gabon.
                         </p>
                     </div>
 
@@ -822,7 +895,6 @@
             </div>
 
         </section>
-
 
         <!-- SONS -->
         <section class="screen" id="screen-sounds">
@@ -833,15 +905,20 @@
 
                 <small>AUDIO</small>
 
-                <h1>🎧 Sons Free Fire &amp; Mythiques</h1>
+                <h1>
+                    🎧 Sons Free Fire &amp; Mythiques
+                </h1>
 
                 <p>
                     Écoute et télécharge gratuitement tes sons
                     préférés de Free Fire et les sons mythiques.
                 </p>
 
-                <div class="sounds-hero-eq" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                <div
+                    class="sounds-hero-eq"
+                    aria-hidden="true">
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i>
                 </div>
 
             </div>
@@ -869,21 +946,33 @@
 
             </div>
 
-            <div class="sound-filters" id="sound-filters"></div>
+            <div
+                class="sound-filters"
+                id="sound-filters">
+            </div>
 
-            <div class="sound-count" id="sound-count"></div>
+            <div
+                class="sound-count"
+                id="sound-count">
+            </div>
 
-            <div class="sound-list" id="sound-list"></div>
+            <div
+                class="sound-list"
+                id="sound-list">
+            </div>
 
-            <div class="sound-empty" id="sound-empty">
+            <div
+                class="sound-empty"
+                id="sound-empty">
+
                 <div>🎧</div>
                 <p>Aucun son trouvé.</p>
+
             </div>
 
         </section>
 
     </main>
-
 
     <!-- LECTEUR AUDIO PLEIN ÉCRAN -->
     <div
@@ -905,10 +994,16 @@
                     id="sp-min"
                     type="button"
                     aria-label="Réduire le lecteur">
-                    <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="m6 9 6 6 6-6"/>
+                    </svg>
+
                 </button>
 
-                <span class="sp-label">EN LECTURE</span>
+                <span class="sp-label">
+                    EN LECTURE
+                </span>
 
                 <span class="sp-top-space"></span>
 
@@ -916,21 +1011,41 @@
 
             <div class="sp-cover-wrap">
 
-                <div class="sp-cover" id="sp-cover">
-                    <img id="sp-cover-img" alt="">
-                    <span class="sp-cover-fallback">🎧</span>
+                <div
+                    class="sp-cover"
+                    id="sp-cover">
+
+                    <img
+                        id="sp-cover-img"
+                        alt="">
+
+                    <span class="sp-cover-fallback">
+                        🎧
+                    </span>
+
                 </div>
 
             </div>
 
             <div class="sp-meta">
 
-                <span class="sp-cat" id="sp-cat">Free Fire</span>
+                <span
+                    class="sp-cat"
+                    id="sp-cat">
+                    Free Fire
+                </span>
 
-                <h2 id="sp-title">Choisis un son</h2>
+                <h2 id="sp-title">
+                    Choisis un son
+                </h2>
 
-                <div class="sp-eq" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i>
+                <div
+                    class="sp-eq"
+                    aria-hidden="true">
+
+                    <i></i><i></i><i></i>
+                    <i></i><i></i>
+
                 </div>
 
             </div>
@@ -948,8 +1063,15 @@
                     aria-label="Progression du son">
 
                 <div class="sp-times">
-                    <span id="sp-cur">0:00</span>
-                    <span id="sp-dur">0:00</span>
+
+                    <span id="sp-cur">
+                        0:00
+                    </span>
+
+                    <span id="sp-dur">
+                        0:00
+                    </span>
+
                 </div>
 
             </div>
@@ -961,10 +1083,22 @@
                     id="sp-prev"
                     type="button"
                     aria-label="Son précédent">
+
                     <svg viewBox="0 0 24 24">
-                        <rect x="5" y="5" width="2.6" height="14" rx="1.2" fill="currentColor" stroke="none"/>
-                        <path d="M19 6v12l-9-6z" fill="currentColor" stroke="none"/>
+                        <rect
+                            x="5"
+                            y="5"
+                            width="2.6"
+                            height="14"
+                            rx="1.2"
+                            fill="currentColor"
+                            stroke="none"/>
+                        <path
+                            d="M19 6v12l-9-6z"
+                            fill="currentColor"
+                            stroke="none"/>
                     </svg>
+
                 </button>
 
                 <button
@@ -972,13 +1106,42 @@
                     id="sp-play"
                     type="button"
                     aria-label="Lecture / Pause">
-                    <svg class="i-play" viewBox="0 0 24 24">
-                        <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor" stroke="none"/>
+
+                    <svg
+                        class="i-play"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"
+                            fill="currentColor"
+                            stroke="none"/>
+
                     </svg>
-                    <svg class="i-pause" viewBox="0 0 24 24">
-                        <rect x="6" y="5" width="4.2" height="14" rx="1.4" fill="currentColor" stroke="none"/>
-                        <rect x="13.8" y="5" width="4.2" height="14" rx="1.4" fill="currentColor" stroke="none"/>
+
+                    <svg
+                        class="i-pause"
+                        viewBox="0 0 24 24">
+
+                        <rect
+                            x="6"
+                            y="5"
+                            width="4.2"
+                            height="14"
+                            rx="1.4"
+                            fill="currentColor"
+                            stroke="none"/>
+
+                        <rect
+                            x="13.8"
+                            y="5"
+                            width="4.2"
+                            height="14"
+                            rx="1.4"
+                            fill="currentColor"
+                            stroke="none"/>
+
                     </svg>
+
                 </button>
 
                 <button
@@ -986,10 +1149,25 @@
                     id="sp-next"
                     type="button"
                     aria-label="Son suivant">
+
                     <svg viewBox="0 0 24 24">
-                        <rect x="16.4" y="5" width="2.6" height="14" rx="1.2" fill="currentColor" stroke="none"/>
-                        <path d="M5 6v12l9-6z" fill="currentColor" stroke="none"/>
+
+                        <rect
+                            x="16.4"
+                            y="5"
+                            width="2.6"
+                            height="14"
+                            rx="1.2"
+                            fill="currentColor"
+                            stroke="none"/>
+
+                        <path
+                            d="M5 6v12l9-6z"
+                            fill="currentColor"
+                            stroke="none"/>
+
                     </svg>
+
                 </button>
 
             </div>
@@ -1003,14 +1181,35 @@
                         id="sp-mute"
                         type="button"
                         aria-label="Couper / remettre le son">
-                        <svg class="i-vol" viewBox="0 0 24 24">
-                            <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor" stroke="none"/>
-                            <path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>
+
+                        <svg
+                            class="i-vol"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"
+                                fill="currentColor"
+                                stroke="none"/>
+
+                            <path
+                                d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/>
+
                         </svg>
-                        <svg class="i-mute" viewBox="0 0 24 24">
-                            <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor" stroke="none"/>
-                            <path d="m16 9.5 5 5M21 9.5l-5 5"/>
+
+                        <svg
+                            class="i-mute"
+                            viewBox="0 0 24 24">
+
+                            <path
+                                d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"
+                                fill="currentColor"
+                                stroke="none"/>
+
+                            <path
+                                d="m16 9.5 5 5M21 9.5l-5 5"/>
+
                         </svg>
+
                     </button>
 
                     <input
@@ -1030,12 +1229,15 @@
                     id="sp-dl"
                     href="#"
                     download>
+
                     <svg viewBox="0 0 24 24">
                         <path d="M12 4v11"/>
                         <path d="m7.5 11 4.5 4.5 4.5-4.5"/>
                         <path d="M5 19.5h14"/>
                     </svg>
+
                     Télécharger
+
                 </a>
 
             </div>
@@ -1044,9 +1246,12 @@
 
     </div>
 
-
     <!-- MINI LECTEUR -->
-    <div class="sound-mini" id="sound-mini" role="region" aria-label="Lecture en cours">
+    <div
+        class="sound-mini"
+        id="sound-mini"
+        role="region"
+        aria-label="Lecture en cours">
 
         <button
             class="sm-open"
@@ -1059,8 +1264,10 @@
             </span>
 
             <span class="sm-text">
+
                 <b id="sm-title">—</b>
                 <small id="sm-cat">—</small>
+
             </span>
 
         </button>
@@ -1070,13 +1277,42 @@
             id="sm-play"
             type="button"
             aria-label="Lecture / Pause">
-            <svg class="i-play" viewBox="0 0 24 24">
-                <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor" stroke="none"/>
+
+            <svg
+                class="i-play"
+                viewBox="0 0 24 24">
+
+                <path
+                    d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"
+                    fill="currentColor"
+                    stroke="none"/>
+
             </svg>
-            <svg class="i-pause" viewBox="0 0 24 24">
-                <rect x="6" y="5" width="4.2" height="14" rx="1.4" fill="currentColor" stroke="none"/>
-                <rect x="13.8" y="5" width="4.2" height="14" rx="1.4" fill="currentColor" stroke="none"/>
+
+            <svg
+                class="i-pause"
+                viewBox="0 0 24 24">
+
+                <rect
+                    x="6"
+                    y="5"
+                    width="4.2"
+                    height="14"
+                    rx="1.4"
+                    fill="currentColor"
+                    stroke="none"/>
+
+                <rect
+                    x="13.8"
+                    y="5"
+                    width="4.2"
+                    height="14"
+                    rx="1.4"
+                    fill="currentColor"
+                    stroke="none"/>
+
             </svg>
+
         </button>
 
         <button
@@ -1084,74 +1320,124 @@
             id="sm-close"
             type="button"
             aria-label="Arrêter la lecture">
-            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+
+            <svg viewBox="0 0 24 24">
+                <path d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+
         </button>
 
-        <span class="sm-line"><span id="sm-line-fill"></span></span>
+        <span class="sm-line">
+            <span id="sm-line-fill"></span>
+        </span>
 
     </div>
 
+    <!-- BOTTOM NAV -->
+    <nav
+        class="bottom-nav"
+        aria-label="Navigation principale">
 
-<!-- BOTTOM NAV -->
-    <nav class="bottom-nav" aria-label="Navigation principale">
+        <button
+            class="bottom-item active"
+            data-screen="home"
+            aria-label="Accueil">
 
-        <button class="bottom-item active" data-screen="home" aria-label="Accueil">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
                 <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>
             </svg>
+
             <small>Accueil</small>
+
         </button>
 
-        <button class="bottom-item" data-screen="shop" aria-label="Boutique">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+        <button
+            class="bottom-item"
+            data-screen="shop"
+            aria-label="Boutique">
+
+            <svg viewBox="0 0 24 24">
                 <path d="M6 3h12l4 6-10 12L2 9z"/>
                 <path d="M2 9h20"/>
                 <path d="m9 3-1 6 4 12 4-12-1-6"/>
             </svg>
+
             <small>Boutique</small>
+
         </button>
 
-        <button class="bottom-item" data-screen="sounds" id="nav-sounds" aria-label="Sons">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+        <button
+            class="bottom-item"
+            data-screen="sounds"
+            id="nav-sounds"
+            aria-label="Sons">
+
+            <svg viewBox="0 0 24 24">
                 <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
                 <rect x="3" y="14" width="4.2" height="7" rx="1.6"/>
                 <rect x="16.8" y="14" width="4.2" height="7" rx="1.6"/>
             </svg>
+
             <small>Sons</small>
+
         </button>
 
-        <button class="bottom-item cart-open cart-nav" aria-label="Panier">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+        <button
+            class="bottom-item cart-open cart-nav"
+            aria-label="Panier">
+
+            <svg viewBox="0 0 24 24">
                 <circle cx="9" cy="20" r="1.5"/>
                 <circle cx="18" cy="20" r="1.5"/>
                 <path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h9a1 1 0 0 0 1-.8L21 7H6"/>
             </svg>
+
             <i id="bottom-count">0</i>
+
             <small>Panier</small>
+
         </button>
 
-        <button class="bottom-item" data-screen="more" aria-label="Plus">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
+        <button
+            class="bottom-item"
+            data-screen="more"
+            aria-label="Plus">
+
+            <svg viewBox="0 0 24 24">
                 <path d="M4 7h16M4 12h16M4 17h10"/>
             </svg>
+
             <small>Plus</small>
+
         </button>
 
     </nav>
 
-
     <!-- PRODUCT MODAL -->
-    <div class="modal" id="product-modal" role="dialog" aria-modal="true" aria-label="Détails du produit">
+    <div
+        class="modal"
+        id="product-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Détails du produit">
 
         <div class="modal-card product-modal-card">
 
-            <button class="modal-close" aria-label="Fermer">×</button>
+            <button
+                class="modal-close"
+                aria-label="Fermer">
+                ×
+            </button>
 
-            <div class="product-big-art" id="modal-art">
+            <div
+                class="product-big-art"
+                id="modal-art">
                 💎
             </div>
 
-            <div class="modal-badge" id="modal-badge">
+            <div
+                class="modal-badge"
+                id="modal-badge">
                 POPULAIRE
             </div>
 
@@ -1163,17 +1449,29 @@
                 Offre Free Fire
             </p>
 
-            <div class="modal-price" id="modal-price">
+            <div
+                class="modal-price"
+                id="modal-price">
                 650 FCFA
             </div>
 
             <div class="quantity">
 
-                <button id="quantity-minus" aria-label="Diminuer la quantité">−</button>
+                <button
+                    id="quantity-minus"
+                    aria-label="Diminuer la quantité">
+                    −
+                </button>
 
-                <strong id="quantity-value">1</strong>
+                <strong id="quantity-value">
+                    1
+                </strong>
 
-                <button id="quantity-plus" aria-label="Augmenter la quantité">+</button>
+                <button
+                    id="quantity-plus"
+                    aria-label="Augmenter la quantité">
+                    +
+                </button>
 
             </div>
 
@@ -1187,9 +1485,13 @@
 
     </div>
 
-
     <!-- CART MODAL -->
-    <div class="modal" id="cart-modal" role="dialog" aria-modal="true" aria-label="Panier">
+    <div
+        class="modal"
+        id="cart-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Panier">
 
         <div class="modal-card cart-modal-card">
 
@@ -1200,11 +1502,18 @@
                     <h2>🛒 Panier</h2>
                 </div>
 
-                <button class="modal-close" aria-label="Fermer">×</button>
+                <button
+                    class="modal-close"
+                    aria-label="Fermer">
+                    ×
+                </button>
 
             </div>
 
-            <div id="cart-list" class="cart-list"></div>
+            <div
+                id="cart-list"
+                class="cart-list">
+            </div>
 
             <div class="cart-summary">
 
@@ -1214,10 +1523,13 @@
                 </div>
 
                 <div class="grand-total">
+
                     <span>Total</span>
+
                     <strong id="summary-total">
                         0 FCFA
                     </strong>
+
                 </div>
 
                 <button
@@ -1232,61 +1544,84 @@
 
     </div>
 
-
     <!-- CHECKOUT -->
-    <div class="modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Finaliser la commande">
+    <div
+        class="modal"
+        id="checkout-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Finaliser la commande">
 
         <div class="modal-card checkout-card">
 
-            <button class="modal-close" aria-label="Fermer">×</button>
+            <button
+                class="modal-close"
+                aria-label="Fermer">
+                ×
+            </button>
 
             <small>FINALISATION</small>
 
             <h2>📋 Ma commande</h2>
 
             <p>
-                Renseigne tes informations
-                pour préparer ton message.
+                Renseigne ton ID Free Fire
+                et ton numéro WhatsApp.
             </p>
 
             <p class="checkout-note">
-                <img src="IMG_1728.jpeg" alt="Moov Money" class="moov-logo" onerror="this.style.display='none'">
+
+                <img
+                    src="IMG_1728.jpeg"
+                    alt="Moov Money"
+                    class="moov-logo"
+                    onerror="this.style.display='none'">
+
                 Paiement par Moov Money uniquement.
                 Les infos de paiement te seront
                 communiquées directement sur WhatsApp.
+
             </p>
 
-            <div id="checkout-items" class="checkout-items"></div>
-
+            <div
+                id="checkout-items"
+                class="checkout-items">
+            </div>
 
             <form id="checkout-form">
 
-                <label>ID Free Fire</label>
+                <!-- UID -->
+                <label for="ff-id">
+                    ID Free Fire
+                </label>
 
                 <input
                     id="ff-id"
                     type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
                     placeholder="Ton ID Free Fire"
+                    autocomplete="off"
                     required>
 
+                <!-- RÉSULTAT AUTOMATIQUE -->
+                <div
+                    id="ff-player-result"
+                    class="ff-player-result"
+                    aria-live="polite">
+                </div>
 
-                <label>Pseudo</label>
-
-                <input
-                    id="customer-name"
-                    type="text"
-                    placeholder="Ton pseudo"
-                    required>
-
-
-                <label>WhatsApp</label>
+                <!-- WHATSAPP -->
+                <label for="customer-phone">
+                    WhatsApp
+                </label>
 
                 <input
                     id="customer-phone"
                     type="tel"
                     placeholder="Ton numéro"
+                    autocomplete="tel"
                     required>
-
 
                 <div class="checkout-total">
 
@@ -1297,7 +1632,6 @@
                     </strong>
 
                 </div>
-
 
                 <button
                     type="submit"
@@ -1311,11 +1645,19 @@
 
     </div>
 
-
     <!-- TOAST -->
-    <div id="toast" class="toast" role="status" aria-live="polite">
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite">
+
         <span>✓</span>
-        <p>Produit ajouté</p>
+
+        <p>
+            Produit ajouté
+        </p>
+
     </div>
 
 </div>
