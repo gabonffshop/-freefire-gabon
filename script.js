@@ -8,14 +8,12 @@
 
 const WHATSAPP_NUMBER = "24177629944";
 
-/* NUMÉRO WHATSAPP DU CENTRE D'AIDE */
+/* NUMÉRO WHATSAPP DU CENTRE D'AIDE (support après-vente, distinct du numéro de commande) */
 
 const HELP_WHATSAPP_NUMBER = "15616004442";
 
 
-/* =====================================================
-   PRODUITS
-   ===================================================== */
+/* PRODUITS */
 
 const products = [
 
@@ -137,12 +135,9 @@ let selectedProduct = null;
 let selectedQuantity = 1;
 
 
-/* =====================================================
-   DOM
-   ===================================================== */
+/* DOM */
 
-const loader =
-    document.getElementById("loader");
+const loader = document.getElementById("loader");
 
 const screens =
     document.querySelectorAll(".screen");
@@ -181,24 +176,18 @@ const toastText =
     toast.querySelector("p");
 
 
-/* =====================================================
-   LOADER
-   ===================================================== */
+/* LOADER */
 
 window.addEventListener("load", () => {
 
     setTimeout(() => {
-
         loader.classList.add("hide");
-
     }, 800);
 
 });
 
 
-/* =====================================================
-   PRIX
-   ===================================================== */
+/* PRIX */
 
 function price(value) {
 
@@ -210,9 +199,7 @@ function price(value) {
 }
 
 
-/* =====================================================
-   FILTRE PAR CATÉGORIE
-   ===================================================== */
+/* FILTRE PAR CATÉGORIE (gère les produits qui appartiennent à 2 catégories) */
 
 function matchesCategory(product, filter) {
 
@@ -229,9 +216,7 @@ function matchesCategory(product, filter) {
 }
 
 
-/* =====================================================
-   ICÔNES
-   ===================================================== */
+/* ICÔNES */
 
 function productIcon(product) {
 
@@ -248,13 +233,10 @@ function productIcon(product) {
     }
 
     return "💎";
-
 }
 
 
-/* =====================================================
-   ART PRODUIT
-   ===================================================== */
+/* ART PRODUIT */
 
 function productArt(product) {
 
@@ -307,9 +289,7 @@ function productArt(product) {
 }
 
 
-/* =====================================================
-   CARTE PRODUIT
-   ===================================================== */
+/* CARTE */
 
 function createProduct(product) {
 
@@ -318,8 +298,7 @@ function createProduct(product) {
 
     article.className = "product";
 
-    article.dataset.id =
-        product.id;
+    article.dataset.id = product.id;
 
     article.innerHTML = `
 
@@ -358,31 +337,23 @@ function createProduct(product) {
         </div>
     `;
 
+    article.addEventListener("click", event => {
 
-    article.addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target.closest(".product-add")
-            ) {
-                return;
-            }
-
-            openProduct(product.id);
-
+        if (
+            event.target.closest(".product-add")
+        ) {
+            return;
         }
-    );
 
+        openProduct(product.id);
+
+    });
 
     return article;
-
 }
 
 
-/* =====================================================
-   RENDU
-   ===================================================== */
+/* RENDU */
 
 function render(container, list) {
 
@@ -399,9 +370,7 @@ function render(container, list) {
 }
 
 
-/* =====================================================
-   INITIAL PRODUCTS
-   ===================================================== */
+/* INITIAL PRODUCTS */
 
 function renderAll() {
 
@@ -429,12 +398,11 @@ function renderAll() {
 renderAll();
 
 
-/* =====================================================
-   NAVIGATION
-   ===================================================== */
+/* NAVIGATION */
+
+/* écran -> bouton de la barre du bas à allumer */
 
 const NAV_PARENT = {
-
     packs: "shop",
     promos: "shop",
     booyah: "shop",
@@ -442,9 +410,7 @@ const NAV_PARENT = {
     reviews: "more",
     contact: "more",
     help: "more"
-
 };
-
 
 function openScreen(name) {
 
@@ -454,12 +420,10 @@ function openScreen(name) {
 
     });
 
-
     const target =
         document.getElementById(
             "screen-" + name
         );
-
 
     if (target) {
 
@@ -467,10 +431,8 @@ function openScreen(name) {
 
     }
 
-
     const navTarget =
         NAV_PARENT[name] || name;
-
 
     bottomItems.forEach(item => {
 
@@ -481,213 +443,141 @@ function openScreen(name) {
 
     });
 
-
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
 
 
-/* =====================================================
-   BOUTONS NAVIGATION
-   ===================================================== */
+/* BOUTONS NAVIGATION */
 
-document.addEventListener(
-    "click",
-    event => {
+document.addEventListener("click", event => {
 
-        const button =
-            event.target.closest(
-                "[data-screen]"
-            );
+    const button =
+        event.target.closest("[data-screen]");
 
-        if (!button) return;
+    if (!button) return;
 
+    openScreen(
+        button.dataset.screen
+    );
 
-        openScreen(
-            button.dataset.screen
-        );
-
-    }
-);
+});
 
 
-/* =====================================================
-   RECHERCHE
-   ===================================================== */
+/* RECHERCHE */
 
 const searchOpen =
-    document.getElementById(
-        "search-open"
-    );
+    document.getElementById("search-open");
 
 const searchClose =
-    document.getElementById(
-        "search-close"
-    );
+    document.getElementById("search-close");
 
 const searchPanel =
-    document.getElementById(
-        "search-panel"
-    );
+    document.getElementById("search-panel");
 
 const searchInput =
-    document.getElementById(
-        "search-input"
-    );
+    document.getElementById("search-input");
 
 
-searchOpen.addEventListener(
-    "click",
-    () => {
+searchOpen.addEventListener("click", () => {
 
-        searchPanel.classList.add(
-            "open"
-        );
+    searchPanel.classList.add("open");
 
-        setTimeout(() => {
+    setTimeout(() => {
+        searchInput.focus();
+    }, 200);
 
-            searchInput.focus();
-
-        }, 200);
-
-    }
-);
+});
 
 
-searchClose.addEventListener(
-    "click",
-    () => {
+searchClose.addEventListener("click", () => {
 
-        searchPanel.classList.remove(
-            "open"
-        );
+    searchPanel.classList.remove("open");
 
+    if (searchInput.value) {
 
-        if (searchInput.value) {
+        searchInput.value = "";
 
-            searchInput.value = "";
+        const activeTab =
+            document.querySelector(".tab.active");
 
-
-            const activeTab =
-                document.querySelector(
-                    ".tab.active"
-                );
-
-
-            const filter =
-                activeTab
-                ? activeTab.dataset.filter
-                : "all";
-
-
-            render(
-                shopProducts,
-                products.filter(
-                    p =>
-                        matchesCategory(
-                            p,
-                            filter
-                        )
-                )
-            );
-
-        }
-
-    }
-);
-
-
-searchInput.addEventListener(
-    "input",
-    () => {
-
-        const value =
-            searchInput.value
-                .toLowerCase()
-                .trim();
-
-
-        const result =
-            products.filter(
-                product =>
-                    product.name
-                        .toLowerCase()
-                        .includes(value)
-            );
-
+        const filter =
+            activeTab ? activeTab.dataset.filter : "all";
 
         render(
             shopProducts,
-            result
+            products.filter(
+                p => matchesCategory(p, filter)
+            )
         );
-
-
-        openScreen("shop");
 
     }
-);
+
+});
 
 
-/* =====================================================
-   FILTRES
-   ===================================================== */
+searchInput.addEventListener("input", () => {
 
-document
-    .querySelectorAll(".tab")
+    const value =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+    const result =
+        products.filter(product =>
+            product.name
+                .toLowerCase()
+                .includes(value)
+        );
+
+    render(
+        shopProducts,
+        result
+    );
+
+    openScreen("shop");
+
+});
+
+
+/* FILTRES */
+
+document.querySelectorAll(".tab")
     .forEach(tab => {
 
-        tab.addEventListener(
-            "click",
-            () => {
+        tab.addEventListener("click", () => {
 
-                document
-                    .querySelectorAll(".tab")
-                    .forEach(t =>
-                        t.classList.remove(
-                            "active"
-                        )
-                    );
-
-
-                tab.classList.add(
-                    "active"
+            document
+                .querySelectorAll(".tab")
+                .forEach(t =>
+                    t.classList.remove("active")
                 );
 
+            tab.classList.add("active");
 
-                const filter =
-                    tab.dataset.filter;
+            const filter =
+                tab.dataset.filter;
 
-
-                const result =
-                    products.filter(
-                        product =>
-                            matchesCategory(
-                                product,
-                                filter
-                            )
-                    );
-
-
-                render(
-                    shopProducts,
-                    result
+            const result =
+                products.filter(
+                    product =>
+                        matchesCategory(product, filter)
                 );
 
-            }
-        );
+            render(
+                shopProducts,
+                result
+            );
+
+        });
 
     });
 
 
-/* =====================================================
-   OUVRIR PRODUIT
-   ===================================================== */
+/* OUVRIR PRODUIT */
 
 function openProduct(id) {
 
@@ -697,30 +587,24 @@ function openProduct(id) {
                 product.id === Number(id)
         );
 
-
     if (!selectedProduct) return;
 
-
     selectedQuantity = 1;
-
 
     document.getElementById(
         "modal-art"
     ).innerHTML =
         productArt(selectedProduct);
 
-
     document.getElementById(
         "modal-badge"
     ).textContent =
         selectedProduct.badge;
 
-
     document.getElementById(
         "modal-name"
     ).textContent =
         selectedProduct.name;
-
 
     document.getElementById(
         "modal-description"
@@ -729,20 +613,14 @@ function openProduct(id) {
         ? `${selectedProduct.diamonds.toLocaleString("fr-FR")} diamants Free Fire`
         : "Pass de saison Free Fire";
 
-
     updateProductModal();
 
-
-    productModal.classList.add(
-        "open"
-    );
+    productModal.classList.add("open");
 
 }
 
 
-/* =====================================================
-   QUANTITÉ PRODUIT
-   ===================================================== */
+/* QUANTITÉ PRODUIT */
 
 function updateProductModal() {
 
@@ -750,7 +628,6 @@ function updateProductModal() {
         "quantity-value"
     ).textContent =
         selectedQuantity;
-
 
     document.getElementById(
         "modal-price"
@@ -765,108 +642,77 @@ function updateProductModal() {
 
 document.getElementById(
     "quantity-minus"
-).addEventListener(
-    "click",
-    () => {
+).addEventListener("click", () => {
 
-        if (selectedQuantity > 1) {
+    if (selectedQuantity > 1) {
 
-            selectedQuantity--;
-
-            updateProductModal();
-
-        }
-
-    }
-);
-
-
-document.getElementById(
-    "quantity-plus"
-).addEventListener(
-    "click",
-    () => {
-
-        selectedQuantity++;
+        selectedQuantity--;
 
         updateProductModal();
 
     }
-);
+
+});
 
 
-/* =====================================================
-   AJOUT PRODUIT
-   ===================================================== */
+document.getElementById(
+    "quantity-plus"
+).addEventListener("click", () => {
 
-document.addEventListener(
-    "click",
-    event => {
+    selectedQuantity++;
 
-        const button =
-            event.target.closest(
-                "[data-add]"
-            );
+    updateProductModal();
+
+});
 
 
-        if (!button) return;
+/* AJOUT PRODUIT */
 
+document.addEventListener("click", event => {
 
-        addToCart(
-            Number(button.dataset.add)
-        );
+    const button =
+        event.target.closest("[data-add]");
 
-    }
-);
+    if (!button) return;
+
+    addToCart(
+        Number(button.dataset.add)
+    );
+
+});
 
 
 document.getElementById(
     "modal-add"
-).addEventListener(
-    "click",
-    () => {
+).addEventListener("click", () => {
 
-        if (!selectedProduct) return;
+    if (!selectedProduct) return;
 
+    addToCart(
+        selectedProduct.id,
+        selectedQuantity
+    );
 
-        addToCart(
-            selectedProduct.id,
-            selectedQuantity
-        );
+    productModal.classList.remove("open");
 
-
-        productModal.classList.remove(
-            "open"
-        );
-
-    }
-);
+});
 
 
-/* =====================================================
-   PANIER
-   ===================================================== */
+/* PANIER */
 
-function addToCart(
-    id,
-    quantity = 1
-) {
+function addToCart(id, quantity = 1) {
 
     const product =
         products.find(
             p => p.id === Number(id)
         );
 
-
     if (!product) return;
-
 
     const existing =
         cart.find(
-            item =>
-                item.id === product.id
+            item => item.id === product.id
         );
-
 
     if (existing) {
 
@@ -875,20 +721,14 @@ function addToCart(
     } else {
 
         cart.push({
-
             ...product,
-
             quantity
-
         });
 
     }
 
-
     saveCart();
-
     updateCart();
-
 
     showToast(
         `${product.name} ajouté au panier`
@@ -926,45 +766,34 @@ function updateCart() {
     const count =
         cartCount();
 
-
     headerCount.textContent =
         count;
 
-
     bottomCount.textContent =
         count;
-
 
     const list =
         document.getElementById(
             "cart-list"
         );
 
-
     const summaryCount =
         document.getElementById(
             "summary-count"
         );
-
 
     const summaryTotal =
         document.getElementById(
             "summary-total"
         );
 
-
     summaryCount.textContent =
         count;
 
-
     summaryTotal.textContent =
-        price(
-            cartTotal()
-        );
-
+        price(cartTotal());
 
     list.innerHTML = "";
-
 
     if (!cart.length) {
 
@@ -984,7 +813,6 @@ function updateCart() {
                 pour commencer.
 
             </div>
-
         `;
 
         return;
@@ -995,14 +823,9 @@ function updateCart() {
     cart.forEach(item => {
 
         const row =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
-
-        row.className =
-            "cart-row";
-
+        row.className = "cart-row";
 
         row.innerHTML = `
 
@@ -1052,9 +875,7 @@ function updateCart() {
                     item.quantity
                 )}
             </strong>
-
         `;
-
 
         list.appendChild(row);
 
@@ -1063,94 +884,67 @@ function updateCart() {
 }
 
 
-/* =====================================================
-   COMMANDES PANIER
-   ===================================================== */
+/* COMMANDES PANIER */
 
-document.addEventListener(
-    "click",
-    event => {
+document.addEventListener("click", event => {
 
-        const plus =
-            event.target.closest(
-                "[data-plus]"
-            );
+    const plus =
+        event.target.closest("[data-plus]");
 
+    const minus =
+        event.target.closest("[data-minus]");
 
-        const minus =
-            event.target.closest(
-                "[data-minus]"
-            );
+    const del =
+        event.target.closest("[data-delete]");
 
 
-        const del =
-            event.target.closest(
-                "[data-delete]"
-            );
+    if (plus) {
 
-
-        if (plus) {
-
-            changeQuantity(
-                Number(
-                    plus.dataset.plus
-                ),
-                1
-            );
-
-        }
-
-
-        if (minus) {
-
-            changeQuantity(
-                Number(
-                    minus.dataset.minus
-                ),
-                -1
-            );
-
-        }
-
-
-        if (del) {
-
-            cart =
-                cart.filter(
-                    item =>
-                        item.id !==
-                        Number(
-                            del.dataset.delete
-                        )
-                );
-
-
-            saveCart();
-
-            updateCart();
-
-        }
+        changeQuantity(
+            Number(plus.dataset.plus),
+            1
+        );
 
     }
-);
 
 
-function changeQuantity(
-    id,
-    amount
-) {
+    if (minus) {
+
+        changeQuantity(
+            Number(minus.dataset.minus),
+            -1
+        );
+
+    }
+
+
+    if (del) {
+
+        cart =
+            cart.filter(
+                item =>
+                    item.id !==
+                    Number(del.dataset.delete)
+            );
+
+        saveCart();
+        updateCart();
+
+    }
+
+});
+
+
+function changeQuantity(id, amount) {
 
     const item =
         cart.find(
             p => p.id === id
         );
 
-
     if (!item) return;
 
-
     item.quantity += amount;
-
 
     if (item.quantity <= 0) {
 
@@ -1161,782 +955,229 @@ function changeQuantity(
 
     }
 
-
     saveCart();
-
     updateCart();
 
 }
 
 
-/* =====================================================
-   OUVRIR PANIER
-   ===================================================== */
+/* OUVRIR PANIER */
 
-document.addEventListener(
-    "click",
-    event => {
+document.addEventListener("click", event => {
 
-        if (
-            event.target.closest(
-                ".cart-open"
-            )
-        ) {
+    if (
+        event.target.closest(".cart-open")
+    ) {
 
-            updateCart();
+        updateCart();
 
-            cartModal.classList.add(
-                "open"
-            );
-
-        }
+        cartModal.classList.add("open");
 
     }
-);
+
+});
 
 
-/* =====================================================
-   CHECKOUT
-   ===================================================== */
+/* CHECKOUT */
 
 document.getElementById(
     "go-checkout"
-).addEventListener(
-    "click",
-    () => {
+).addEventListener("click", () => {
 
-        if (!cart.length) {
+    if (!cart.length) {
 
-            showToast(
-                "Ton panier est vide"
-            );
-
-            return;
-
-        }
-
-
-        document.getElementById(
-            "checkout-total"
-        ).textContent =
-            price(
-                cartTotal()
-            );
-
-
-        document.getElementById(
-            "checkout-items"
-        ).innerHTML =
-            cart.map(
-                item => `
-
-                <div class="checkout-item">
-
-                    <div
-                        class="checkout-item-thumb">
-
-                        ${productArt(item)}
-
-                    </div>
-
-                    <div
-                        class="checkout-item-info">
-
-                        <span
-                            class="checkout-item-name">
-
-                            ${item.name}
-
-                        </span>
-
-                        <span
-                            class="checkout-item-qty">
-
-                            x${item.quantity}
-
-                        </span>
-
-                    </div>
-
-                    <strong
-                        class="checkout-item-price">
-
-                        ${price(
-                            item.price *
-                            item.quantity
-                        )}
-
-                    </strong>
-
-                </div>
-
-            `
-            ).join("");
-
-
-        /*
-           On efface une ancienne vérification
-           lorsqu'on ouvre une nouvelle commande.
-        */
-
-        verifiedPlayer = null;
-
-
-        if (ffPlayerResult) {
-
-            ffPlayerResult.innerHTML = "";
-
-        }
-
-
-        cartModal.classList.remove(
-            "open"
+        showToast(
+            "Ton panier est vide"
         );
-
-
-        checkoutModal.classList.add(
-            "open"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   FERMETURE MODALES
-   ===================================================== */
-
-document
-    .querySelectorAll(".modal-close")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                button
-                    .closest(".modal")
-                    .classList.remove(
-                        "open"
-                    );
-
-            }
-        );
-
-    });
-
-
-document
-    .querySelectorAll(".modal")
-    .forEach(modal => {
-
-        modal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target === modal
-                ) {
-
-                    modal.classList.remove(
-                        "open"
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-/* =====================================================
-   VÉRIFICATION UID FREE FIRE
-   ===================================================== */
-
-const ffIdInput =
-    document.getElementById(
-        "ff-id"
-    );
-
-
-const ffPlayerResult =
-    document.getElementById(
-        "ff-player-result"
-    );
-
-
-/*
-   Joueur actuellement vérifié.
-*/
-
-let verifiedPlayer = null;
-
-
-/*
-   Protection du pseudo avant
-   affichage dans innerHTML.
-*/
-
-function escapeHTML(value) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/*
-   Affichage du résultat.
-*/
-
-function showPlayerResult(
-    type,
-    nickname = ""
-) {
-
-    if (!ffPlayerResult) return;
-
-
-    if (type === "loading") {
-
-        ffPlayerResult.innerHTML = `
-
-            <div class="ff-player-loading">
-                🔄 Vérification du joueur...
-            </div>
-
-        `;
 
         return;
 
     }
 
+    document.getElementById(
+        "checkout-total"
+    ).textContent =
+        price(cartTotal());
 
-    if (type === "success") {
+    document.getElementById(
+        "checkout-items"
+    ).innerHTML =
+        cart.map(item => `
 
-        ffPlayerResult.innerHTML = `
+            <div class="checkout-item">
 
-            <div class="ff-player-success">
+                <div class="checkout-item-thumb">
+                    ${productArt(item)}
+                </div>
 
-                <span>
-                    ✅ Joueur trouvé
-                </span>
+                <div class="checkout-item-info">
+                    <span class="checkout-item-name">
+                        ${item.name}
+                    </span>
+                    <span class="checkout-item-qty">
+                        x${item.quantity}
+                    </span>
+                </div>
 
-                <strong>
-                    🎮 ${escapeHTML(
-                        nickname
-                    )}
+                <strong class="checkout-item-price">
+                    ${price(item.price * item.quantity)}
                 </strong>
 
             </div>
 
-        `;
+        `).join("");
 
-        return;
+    cartModal.classList.remove("open");
 
-    }
+    checkoutModal.classList.add("open");
 
+});
 
-    if (type === "error") {
 
-        ffPlayerResult.innerHTML = `
+/* FERMETURE MODALES */
 
-            <div class="ff-player-error">
+document.querySelectorAll(".modal-close")
+    .forEach(button => {
 
-                ❌ Joueur introuvable
+        button.addEventListener("click", () => {
 
-                <small>
-                    Vérifie ton ID Free Fire.
-                </small>
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/*
-   Recherche du joueur.
-*/
-
-async function verifyFreeFirePlayer() {
-
-    if (!ffIdInput) {
-        return false;
-    }
-
-
-    const uid =
-        ffIdInput.value.trim();
-
-
-    verifiedPlayer = null;
-
-
-    if (!uid) {
-
-        if (ffPlayerResult) {
-
-            ffPlayerResult.innerHTML =
-                "";
-
-        }
-
-        return false;
-
-    }
-
-
-    /*
-       Un UID Free Fire doit être
-       composé uniquement de chiffres.
-    */
-
-    if (
-        !/^\d{5,15}$/.test(uid)
-    ) {
-
-        showPlayerResult(
-            "error"
-        );
-
-        return false;
-
-    }
-
-
-    showPlayerResult(
-        "loading"
-    );
-
-
-    try {
-
-        const response =
-            await fetch(
-                `https://api2.nftoken.info/get?uid=${encodeURIComponent(uid)}`,
-                {
-                    method: "GET",
-
-                    headers: {
-                        "Accept":
-                            "application/json"
-                    }
-                }
-            );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "API_ERROR"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        const account =
-            data?.AccountInfo || {};
-
-
-        const nickname =
-            typeof account.AccountName ===
-            "string"
-
-                ? account.AccountName.trim()
-
-                : "";
-
-
-        if (!nickname) {
-
-            throw new Error(
-                "PLAYER_NOT_FOUND"
-            );
-
-        }
-
-
-        verifiedPlayer = {
-
-            uid: uid,
-
-            nickname: nickname,
-
-            level:
-                account.AccountLevel ??
-                null,
-
-            region:
-                account.AccountRegion ??
-                null
-
-        };
-
-
-        showPlayerResult(
-            "success",
-            nickname
-        );
-
-
-        return true;
-
-
-    } catch (error) {
-
-        console.error(
-            "Erreur vérification Free Fire :",
-            error
-        );
-
-
-        verifiedPlayer = null;
-
-
-        showPlayerResult(
-            "error"
-        );
-
-
-        return false;
-
-    }
-
-}
-
-
-/*
-   L'utilisateur change l'UID :
-   l'ancien joueur n'est plus considéré
-   comme vérifié.
-*/
-
-if (ffIdInput) {
-
-    ffIdInput.addEventListener(
-        "input",
-        () => {
-
-            verifiedPlayer = null;
-
-
-            if (ffPlayerResult) {
-
-                ffPlayerResult.innerHTML =
-                    "";
-
-            }
-
-        }
-    );
-
-
-    /*
-       Vérification automatique
-       quand le champ est quitté.
-    */
-
-    ffIdInput.addEventListener(
-        "blur",
-        () => {
-
-            verifyFreeFirePlayer();
-
-        }
-    );
-
-
-    /*
-       Entrée = vérification immédiate.
-    */
-
-    ffIdInput.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                event.preventDefault();
-
-                verifyFreeFirePlayer();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   CHECKOUT WHATSAPP
-   ===================================================== */
-
-document.getElementById(
-    "checkout-form"
-).addEventListener(
-    "submit",
-    async event => {
-
-        event.preventDefault();
-
-
-        const ffId =
-            ffIdInput.value.trim();
-
-
-        const phone =
-            document.getElementById(
-                "customer-phone"
-            ).value.trim();
-
-
-        /*
-           Si le joueur n'a pas encore
-           été vérifié, on le vérifie.
-        */
-
-        if (
-            !verifiedPlayer ||
-            verifiedPlayer.uid !== ffId
-        ) {
-
-            const verified =
-                await verifyFreeFirePlayer();
-
-
-            if (!verified) {
-
-                showToast(
-                    "⚠️ Vérifie ton ID Free Fire"
-                );
-
-
-                ffIdInput.focus();
-
-
-                return;
-
-            }
-
-        }
-
-
-        /*
-           Double sécurité.
-        */
-
-        if (
-            !verifiedPlayer ||
-            verifiedPlayer.uid !== ffId
-        ) {
-
-            showToast(
-                "⚠️ Impossible de vérifier ce joueur"
-            );
-
-
-            return;
-
-        }
-
-
-        /*
-           MESSAGE WHATSAPP
-        */
-
-        let message =
-            `🔥 COMMANDE FREE FIRE STORE GABON 🇬🇦\n\n`;
-
-
-        message +=
-            `👤 Pseudo : ${verifiedPlayer.nickname}\n`;
-
-
-        message +=
-            `🎮 ID Free Fire : ${verifiedPlayer.uid}\n`;
-
-
-        if (
-            verifiedPlayer.level !== null
-        ) {
-
-            message +=
-                `📊 Niveau : ${verifiedPlayer.level}\n`;
-
-        }
-
-
-        if (
-            verifiedPlayer.region
-        ) {
-
-            message +=
-                `🌍 Région : ${verifiedPlayer.region}\n`;
-
-        }
-
-
-        message +=
-            `📱 WhatsApp : ${phone}\n\n`;
-
-
-        message +=
-            `🛒 ARTICLES :\n`;
-
-
-        cart.forEach(item => {
-
-            message +=
-                `• ${item.name} x${item.quantity} — ${price(
-                    item.price *
-                    item.quantity
-                )}\n`;
+            button
+                .closest(".modal")
+                .classList.remove("open");
 
         });
 
+    });
+
+
+document.querySelectorAll(".modal")
+    .forEach(modal => {
+
+        modal.addEventListener("click", event => {
+
+            if (event.target === modal) {
+
+                modal.classList.remove("open");
+
+            }
+
+        });
+
+    });
+
+
+/* CHECKOUT WHATSAPP */
+
+document.getElementById(
+    "checkout-form"
+).addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const ffId =
+        document.getElementById(
+            "ff-id"
+        ).value.trim();
+
+    const name =
+        document.getElementById(
+            "customer-name"
+        ).value.trim();
+
+    const phone =
+        document.getElementById(
+            "customer-phone"
+        ).value.trim();
+
+
+    let message =
+        `🔥 COMMANDE FREE FIRE STORE GABON 🇬🇦\n\n`;
+
+    message +=
+        `👤 Pseudo : ${name}\n`;
+
+    message +=
+        `🎮 ID Free Fire : ${ffId}\n`;
+
+    message +=
+        `📱 WhatsApp : ${phone}\n\n`;
+
+    message +=
+        `🛒 ARTICLES :\n`;
+
+
+    cart.forEach(item => {
 
         message +=
-            `\n💰 TOTAL : ${price(
-                cartTotal()
-            )}`;
+            `• ${item.name} x${item.quantity} — ${price(
+                item.price *
+                item.quantity
+            )}\n`;
+
+    });
 
 
-        /*
-           Lien WhatsApp.
-        */
-
-        const url =
-            "https://wa.me/" +
-            WHATSAPP_NUMBER +
-            "?text=" +
-            encodeURIComponent(
-                message
-            );
+    message +=
+        `\n💰 TOTAL : ${price(
+            cartTotal()
+        )}`;
 
 
-        window.open(
-            url,
-            "_blank"
-        );
+    const url =
+        "https://wa.me/" +
+        WHATSAPP_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
 
 
-        /*
-           Nettoyage après préparation
-           de la commande.
-        */
+    window.open(
+        url,
+        "_blank"
+    );
 
-        checkoutModal.classList.remove(
-            "open"
-        );
+    // Commande envoyée : on vide le panier et on referme
+    // pour éviter un doublon si le client recommence.
 
+    checkoutModal.classList.remove("open");
 
-        event.target.reset();
+    event.target.reset();
 
+    cart = [];
 
-        verifiedPlayer = null;
+    saveCart();
+    updateCart();
 
+    showToast(
+        "Commande envoyée sur WhatsApp ✅"
+    );
 
-        if (ffPlayerResult) {
-
-            ffPlayerResult.innerHTML =
-                "";
-
-        }
-
-
-        cart = [];
+});
 
 
-        saveCart();
-
-        updateCart();
-
-
-        showToast(
-            "Commande préparée sur WhatsApp ✅"
-        );
-
-    }
-);
-
-
-/* =====================================================
-   TOAST
-   ===================================================== */
+/* TOAST */
 
 let toastTimer;
-
 
 function showToast(message) {
 
     toastText.textContent =
         message;
 
+    toast.classList.add("show");
 
-    toast.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        toastTimer
-    );
-
+    clearTimeout(toastTimer);
 
     toastTimer =
-        setTimeout(
-            () => {
+        setTimeout(() => {
 
-                toast.classList.remove(
-                    "show"
-                );
+            toast.classList.remove("show");
 
-            },
-            2500
-        );
+        }, 2500);
 
 }
 
 
-/* =====================================================
-   LOCAL STORAGE
-   ===================================================== */
+/* LOCAL STORAGE */
 
 function saveCart() {
 
@@ -1957,13 +1198,10 @@ function loadCart() {
                 "ff-store-cart"
             );
 
-
         if (saved) {
 
             cart =
-                JSON.parse(
-                    saved
-                );
+                JSON.parse(saved);
 
         }
 
@@ -1977,238 +1215,154 @@ function loadCart() {
 
 
 loadCart();
-
 updateCart();
 
 
-/* =====================================================
-   SYNCHRO LIEN CONTACT
-   ===================================================== */
+/* SYNCHRO LIEN CONTACT (numéro du centre d'aide/support, distinct du numéro de commande) */
 
 document
-    .querySelectorAll(
-        'a[href^="https://wa.me/"]'
-    )
+    .querySelectorAll('a[href^="https://wa.me/"]')
     .forEach(link => {
 
         link.href =
-            "https://wa.me/" +
-            HELP_WHATSAPP_NUMBER;
+            "https://wa.me/" + HELP_WHATSAPP_NUMBER;
 
     });
 
 
-/* =====================================================
-   ESCAPE
-   ===================================================== */
+/* ESCAPE */
 
-document.addEventListener(
-    "keydown",
-    event => {
+document.addEventListener("keydown", event => {
 
-        if (
-            event.key === "Escape"
-        ) {
+    if (event.key === "Escape") {
 
-            document
-                .querySelectorAll(
-                    ".modal"
-                )
-                .forEach(
-                    modal =>
-                        modal.classList.remove(
-                            "open"
-                        )
-                );
-
-
-            searchPanel.classList.remove(
-                "open"
+        document
+            .querySelectorAll(".modal")
+            .forEach(modal =>
+                modal.classList.remove("open")
             );
 
-        }
+        searchPanel.classList.remove("open");
 
     }
-);
+
+});
 
 
-/* =====================================================
-   CENTRE D'AIDE
-   ===================================================== */
+/* CENTRE D'AIDE */
 
 const helpInput =
-    document.getElementById(
-        "help-input"
-    );
-
+    document.getElementById("help-input");
 
 const helpResult =
-    document.getElementById(
-        "help-result"
-    );
-
+    document.getElementById("help-result");
 
 const helpSubmit =
-    document.getElementById(
-        "help-submit"
-    );
-
+    document.getElementById("help-submit");
 
 const helpYes =
-    document.getElementById(
-        "help-yes"
-    );
-
+    document.getElementById("help-yes");
 
 const helpNo =
-    document.getElementById(
-        "help-no"
-    );
+    document.getElementById("help-no");
 
 
 if (helpSubmit) {
 
-    helpSubmit.addEventListener(
-        "click",
-        () => {
+    helpSubmit.addEventListener("click", () => {
 
-            helpResult.classList.add(
-                "show"
-            );
+        helpResult.classList.add("show");
 
+        helpResult.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
-            helpResult.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-    );
+    });
 
 }
 
 
 if (helpYes) {
 
-    helpYes.addEventListener(
-        "click",
-        () => {
+    helpYes.addEventListener("click", () => {
 
-            helpResult.classList.remove(
-                "show"
-            );
+        helpResult.classList.remove("show");
 
+        helpInput.value = "";
 
-            helpInput.value = "";
+        showToast(
+            "Content d'avoir pu t'aider 🙌"
+        );
 
-
-            showToast(
-                "Content d'avoir pu t'aider 🙌"
-            );
-
-        }
-    );
+    });
 
 }
 
 
 if (helpNo) {
 
-    helpNo.addEventListener(
-        "click",
-        () => {
+    helpNo.addEventListener("click", () => {
 
-            const problem =
-                helpInput.value.trim() ||
-                "Diamants non reçus après ma commande.";
+        const problem =
+            helpInput.value.trim() ||
+            "Diamants non reçus après ma commande.";
 
+        let message =
+            `🆘 CENTRE D'AIDE — FREE FIRE STORE GABON 🇬🇦\n\n`;
 
-            let message =
-                `🆘 CENTRE D'AIDE — FREE FIRE STORE GABON 🇬🇦\n\n`;
+        message +=
+            `Problème décrit :\n${problem}\n\n`;
 
+        message +=
+            `J'ai déjà essayé les solutions proposées, `;
 
-            message +=
-                `Problème décrit :\n${problem}\n\n`;
+        message +=
+            `merci de m'aider directement.`;
 
+        const url =
+            "https://wa.me/" +
+            HELP_WHATSAPP_NUMBER +
+            "?text=" +
+            encodeURIComponent(message);
 
-            message +=
-                `J'ai déjà essayé les solutions proposées, `;
-
-
-            message +=
-                `merci de m'aider directement.`;
-
-
-            const url =
-                "https://wa.me/" +
-                HELP_WHATSAPP_NUMBER +
-                "?text=" +
-                encodeURIComponent(
-                    message
-                );
-
-
-            window.open(
-                url,
-                "_blank"
-            );
-
-        }
-    );
-
-}
-
-
-/* =====================================================
-   FAQ
-   ===================================================== */
-
-document
-    .querySelectorAll(
-        ".faq-question"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                button
-                    .closest(
-                        ".faq-item"
-                    )
-                    .classList.toggle(
-                        "open"
-                    );
-
-            }
+        window.open(
+            url,
+            "_blank"
         );
 
     });
 
-
-/* =====================================================
-   BOUTONS "ACHETER"
-   ===================================================== */
-
-document.addEventListener(
-    "click",
-    event => {
-
-        const button =
-            event.target.closest(
-                "[data-product]"
-            );
+}
 
 
-        if (!button) return;
+/* FAQ */
+
+document.querySelectorAll(".faq-question")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            button
+                .closest(".faq-item")
+                .classList.toggle("open");
+
+        });
+
+    });
 
 
-        openProduct(
-            Number(
-                button.dataset.product
-            )
-        );
+/* BOUTONS "ACHETER" (ex : Booyah Pass) */
 
-    }
-);
+document.addEventListener("click", event => {
+
+    const button =
+        event.target.closest("[data-product]");
+
+    if (!button) return;
+
+    openProduct(
+        Number(button.dataset.product)
+    );
+
+});
