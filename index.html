@@ -162,7 +162,7 @@
 
                     <!-- COMPTE À REBOURS HALLOWEEN -->
                     <div class="countdown-banner" style="margin: 10px 0; font-weight: bold; color: #ff6500; font-size: 0.95rem; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,101,0,0.3);">
-                        ⏳ Début le 18 Oct : <span id="halloween-countdown">--:--:--</span>
+                        ⏳ Début le 18 Oct : <span id="halloween-countdown">--j --:--:--</span>
                     </div>
 
                     <h1>
@@ -294,7 +294,7 @@
             </button>
 
 
-            <!-- VIDÉO HALLOWEEN -->
+            <!-- VIDÉO HALLOWEEN (AVEC AUDIO AUTOMATIQUE) -->
             <div class="section-head home-head">
                 <div>
                     <small>DÉCOUVRE</small>
@@ -303,7 +303,7 @@
             </div>
 
             <div class="video-card">
-                <video autoplay muted loop playsinline preload="auto">
+                <video id="halloween-bottom-video" autoplay loop playsinline preload="auto">
                     <source src="VreTlJcMLXqYYcj.mp4">
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
@@ -1426,7 +1426,6 @@
 <!-- SCRIPT POUR LE COMPTE À REBOURS HALLOWEEN -->
 <script>
 function updateHalloweenCountdown() {
-    // Cible : 18 octobre 2026 à 00:00:00
     const targetDate = new Date("October 18, 2026 00:00:00").getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
@@ -1439,18 +1438,40 @@ function updateHalloweenCountdown() {
         return;
     }
 
-    const hours = Math.floor(difference / (1000 * 60 * 60));
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    el.textContent = 
+    const formattedTime = 
         String(hours).padStart(2, '0') + ":" + 
         String(minutes).padStart(2, '0') + ":" + 
         String(seconds).padStart(2, '0');
+
+    if (days > 0) {
+        el.textContent = `${days}j ${formattedTime}`;
+    } else {
+        el.textContent = formattedTime;
+    }
 }
 
 setInterval(updateHalloweenCountdown, 1000);
 updateHalloweenCountdown();
+</script>
+
+<!-- SCRIPT POUR TENTER DE FORCER L'AUDIO DE LA VIDÉO DU BAS -->
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const bottomVideo = document.getElementById('halloween-bottom-video');
+    if (bottomVideo) {
+        bottomVideo.muted = false;
+        bottomVideo.play().catch(() => {
+            // Si le navigateur bloque l'audio automatique, on active le mode muet en secours pour que la vidéo se lance quand même
+            bottomVideo.muted = true;
+            bottomVideo.play();
+        });
+    }
+});
 </script>
 
 <script>
