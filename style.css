@@ -1474,6 +1474,22 @@ main {
     animation-delay: .19s;
 }
 
+.review-item:nth-child(4) {
+    animation-delay: .26s;
+}
+
+.review-item:nth-child(5) {
+    animation-delay: .33s;
+}
+
+.review-item:nth-child(6) {
+    animation-delay: .4s;
+}
+
+.review-item:nth-child(7) {
+    animation-delay: .47s;
+}
+
 .review-stars {
     color: var(--orange);
 
@@ -1549,6 +1565,60 @@ main {
     color: #888;
 
     font-size: 10px;
+}
+
+/* message remarques / service client */
+
+.feedback-note {
+    margin-top: 20px;
+    padding: 22px;
+
+    border: 1px solid rgba(255,101,0,.25);
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(255,101,0,.16),
+            transparent 60%
+        ),
+        #111;
+
+    text-align: center;
+}
+
+.feedback-note span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+}
+
+.feedback-note p {
+    color: #bbb;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.feedback-note button {
+    margin-top: 16px;
+    padding: 13px 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--orange2)
+        );
+
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 900;
 }
 
 
@@ -4805,6 +4875,119 @@ body.player-on .toast {
 
     .sp-meta h2 {
         font-size: 19px;
+    }
+
+}
+
+
+/* =====================================================
+   ÉVÉNEMENT HALLOWEEN : COMPTE À REBOURS
+   ===================================================== */
+
+.event-countdown {
+    margin-bottom: 14px;
+    padding: 18px 14px 16px;
+
+    border: 1px solid rgba(255,101,0,.35);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(255,101,0,.22),
+            transparent 55%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(150,80,255,.2),
+            transparent 55%
+        ),
+        #111;
+
+    text-align: center;
+}
+
+.ec-label {
+    color: #ffb16d;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.ec-timer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+
+    margin-top: 14px;
+}
+
+.ec-box {
+    min-width: 62px;
+
+    padding: 12px 6px 9px;
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px;
+
+    background: rgba(0,0,0,.45);
+}
+
+.ec-box b {
+    display: block;
+
+    color: #fff;
+
+    font-size: 30px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+
+    text-shadow: 0 0 18px rgba(255,101,0,.7);
+}
+
+.ec-box small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #999;
+
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.ec-sep {
+    padding-top: 10px;
+
+    color: var(--orange);
+
+    font-size: 26px;
+    font-weight: 900;
+
+    animation: dotPulse 1s ease-in-out infinite;
+}
+
+.event-countdown.started {
+    border-color: rgba(31,202,103,.4);
+}
+
+.event-countdown.started .ec-label {
+    color: #1fca67;
+
+    font-size: 12px;
+}
+
+@media (max-width: 380px) {
+
+    .ec-box {
+        min-width: 54px;
+    }
+
+    .ec-box b {
+        font-size: 25px;
     }
 
 }
