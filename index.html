@@ -139,7 +139,7 @@
                     loop
                     playsinline
                     preload="auto">
-                    <source src="h1Ax8ZuvJmOszEs.mp4">
+                    <source src="VreTlJcMLXqYYcj.mp4">
                 </video>
 
                 <div class="hero-overlay"></div>
@@ -155,9 +155,14 @@
                         </div>
 
                         <div class="hero-tag hero-tag-event">
-                            🍥 ÉVÉNEMENT NARUTO
+                            🎃 ÉVÉNEMENT HALLOWEEN
                         </div>
 
+                    </div>
+
+                    <!-- COMPTE À REBOURS HALLOWEEN -->
+                    <div class="countdown-banner" style="margin: 10px 0; font-weight: bold; color: #ff6500; font-size: 0.95rem; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,101,0,0.3);">
+                        ⏳ Début le 18 Oct : <span id="halloween-countdown">--:--:--</span>
                     </div>
 
                     <h1>
@@ -289,17 +294,17 @@
             </button>
 
 
-            <!-- VIDÉO -->
+            <!-- VIDÉO HALLOWEEN -->
             <div class="section-head home-head">
                 <div>
                     <small>DÉCOUVRE</small>
-                    <h2>l'événement Naruto</h2>
+                    <h2>l'événement Halloween</h2>
                 </div>
             </div>
 
             <div class="video-card">
-                <video controls playsinline preload="metadata">
-                    <source src="h1Ax8ZuvJmOszEs.mp4">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="VreTlJcMLXqYYcj.mp4">
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
             </div>
@@ -1418,6 +1423,36 @@
 <script src="script.js"></script>
 <script src="sounds.js"></script>
 
+<!-- SCRIPT POUR LE COMPTE À REBOURS HALLOWEEN -->
+<script>
+function updateHalloweenCountdown() {
+    // Cible : 18 octobre 2026 à 00:00:00
+    const targetDate = new Date("October 18, 2026 00:00:00").getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    const el = document.getElementById("halloween-countdown");
+    if (!el) return;
+
+    if (difference <= 0) {
+        el.textContent = "Événement en cours ! 🎉";
+        return;
+    }
+
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    el.textContent = 
+        String(hours).padStart(2, '0') + ":" + 
+        String(minutes).padStart(2, '0') + ":" + 
+        String(seconds).padStart(2, '0');
+}
+
+setInterval(updateHalloweenCountdown, 1000);
+updateHalloweenCountdown();
+</script>
+
 <script>
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
@@ -1428,4 +1463,3 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
-
