@@ -31,6 +31,13 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="684A770E-E83E-4AEC-AA2B-EDFDF07E5D4C.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="FF Store">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -132,7 +139,7 @@
                     loop
                     playsinline
                     preload="auto">
-                    <source src="h1Ax8ZuvJmOszEs.mp4">
+                    <source src="VreTlJcMLXqYYcj.mp4" type="video/mp4">
                 </video>
 
                 <div class="hero-overlay"></div>
@@ -148,7 +155,7 @@
                         </div>
 
                         <div class="hero-tag hero-tag-event">
-                            🍥 ÉVÉNEMENT NARUTO
+                            🎃 ÉVÉNEMENT HALLOWEEN
                         </div>
 
                     </div>
@@ -286,13 +293,52 @@
             <div class="section-head home-head">
                 <div>
                     <small>DÉCOUVRE</small>
-                    <h2>l'événement Naruto</h2>
+                    <h2>l'événement Halloween</h2>
                 </div>
             </div>
 
+            <!-- COMPTE À REBOURS -->
+            <div class="event-countdown" id="event-countdown">
+
+                <div class="ec-label" id="ec-label">
+                    🎃 L'ÉVÉNEMENT COMMENCE LE 18 OCTOBRE
+                </div>
+
+                <div class="ec-timer" id="ec-timer">
+
+                    <div class="ec-box">
+                        <b id="ec-d">00</b>
+                        <small>JOURS</small>
+                    </div>
+
+                    <span class="ec-sep">:</span>
+
+                    <div class="ec-box">
+                        <b id="ec-h">00</b>
+                        <small>HEURES</small>
+                    </div>
+
+                    <span class="ec-sep">:</span>
+
+                    <div class="ec-box">
+                        <b id="ec-m">00</b>
+                        <small>MIN</small>
+                    </div>
+
+                    <span class="ec-sep">:</span>
+
+                    <div class="ec-box">
+                        <b id="ec-s">00</b>
+                        <small>SEC</small>
+                    </div>
+
+                </div>
+
+            </div>
+
             <div class="video-card">
-                <video controls playsinline preload="metadata">
-                    <source src="h1Ax8ZuvJmOszEs.mp4">
+                <video class="event-video" controls autoplay muted loop playsinline preload="auto">
+                    <source src="VreTlJcMLXqYYcj.mp4" type="video/mp4">
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
             </div>
@@ -313,6 +359,24 @@
             </div>
 
             <div class="home-reviews">
+
+                <div class="home-review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        « Les prix sont bien, j'ai acheté
+                        mes diamants facilement, merci 🙏 »
+                    </p>
+                    <b>Boma241</b>
+                </div>
+
+                <div class="home-review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        « C'est too hyn vous avez ajouté
+                        la musique 🎵 »
+                    </p>
+                    <b>Oscar</b>
+                </div>
 
                 <div class="home-review-card">
                     <div class="review-stars">★★★★★</div>
@@ -620,6 +684,76 @@
                     <b class="review-author">Sami</b>
 
                 </article>
+
+                <article class="review-item">
+
+                    <div class="review-stars">★★★★★</div>
+
+                    <p class="review-text">
+                        « C'est too hyn vous avez ajouté
+                        la musique 🎵😭😇 »
+                    </p>
+
+                    <b class="review-author">Oscar</b>
+
+                </article>
+
+                <article class="review-item">
+
+                    <div class="review-stars">★★★★☆</div>
+
+                    <p class="review-text">
+                        « Je pense qu'il faut encore ajouter
+                        des musiques mais c'est bien, merci. »
+                    </p>
+
+                    <b class="review-author">Andy</b>
+
+                </article>
+
+                <article class="review-item">
+
+                    <div class="review-stars">★★★★★</div>
+
+                    <p class="review-text">
+                        « Pohpoh les prix sont bien, j'ai acheté
+                        mes diamants facilement, merci 🙏 »
+                    </p>
+
+                    <b class="review-author">Boma241</b>
+
+                </article>
+
+                <article class="review-item">
+
+                    <div class="review-stars">★★★★☆</div>
+
+                    <p class="review-text">
+                        « C'est pas bon les gars, je veux plus
+                        d'offres. Le plus important c'est que
+                        le site est fiable, merci. »
+                    </p>
+
+                    <b class="review-author">David</b>
+
+                </article>
+
+            </div>
+
+
+            <div class="feedback-note">
+
+                <span>💬</span>
+
+                <p>
+                    Si vous avez des remarques, vous pouvez
+                    aussi nous les dire au service client
+                    pour améliorer le site. Merci !
+                </p>
+
+                <button data-screen="contact">
+                    Contacter le service client →
+                </button>
 
             </div>
 
@@ -1322,6 +1456,103 @@
 
 <script src="script.js"></script>
 <script src="sounds.js"></script>
+
+<script>
+/* COMPTE À REBOURS HALLOWEEN : début le 18 octobre 2026 à 00:00 (heure du Gabon, UTC+1) */
+(function () {
+
+    const target = new Date("2026-10-18T00:00:00+01:00").getTime();
+
+    const wrap  = document.getElementById("event-countdown");
+    const label = document.getElementById("ec-label");
+    const timer = document.getElementById("ec-timer");
+
+    const elD = document.getElementById("ec-d");
+    const elH = document.getElementById("ec-h");
+    const elM = document.getElementById("ec-m");
+    const elS = document.getElementById("ec-s");
+
+    if (!wrap) return;
+
+    const pad = n => String(n).padStart(2, "0");
+
+    let interval;
+
+    function tick() {
+
+        const diff = target - Date.now();
+
+        if (diff <= 0) {
+
+            wrap.classList.add("started");
+            label.textContent = "🎃 L'ÉVÉNEMENT HALLOWEEN A COMMENCÉ !";
+            timer.style.display = "none";
+
+            clearInterval(interval);
+
+            return;
+        }
+
+        const total = Math.floor(diff / 1000);
+
+        elD.textContent = pad(Math.floor(total / 86400));
+        elH.textContent = pad(Math.floor((total % 86400) / 3600));
+        elM.textContent = pad(Math.floor((total % 3600) / 60));
+        elS.textContent = pad(total % 60);
+    }
+
+    tick();
+
+    interval = setInterval(tick, 1000);
+
+})();
+
+
+/* VIDÉO HALLOWEEN : lecture automatique (muette) dès qu'elle est visible */
+(function () {
+
+    const video = document.querySelector(".event-video");
+
+    if (!video) return;
+
+    video.muted = true;
+
+    const play = () => {
+        const p = video.play();
+        if (p && p.catch) p.catch(() => {});
+    };
+
+    if ("IntersectionObserver" in window) {
+
+        new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    play();
+                } else {
+                    video.pause();
+                }
+
+            });
+
+        }, { threshold: 0.35 }).observe(video);
+
+    } else {
+
+        play();
+
+    }
+
+})();
+
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+}
+</script>
 
 </body>
 </html>
