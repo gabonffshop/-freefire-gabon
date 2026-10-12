@@ -31,13 +31,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="684A770E-E83E-4AEC-AA2B-EDFDF07E5D4C.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="FF Store">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -139,7 +132,7 @@
                     loop
                     playsinline
                     preload="auto">
-                    <source src="VreTlJcMLXqYYcj.mp4">
+                    <source src="h1Ax8ZuvJmOszEs.mp4">
                 </video>
 
                 <div class="hero-overlay"></div>
@@ -155,14 +148,9 @@
                         </div>
 
                         <div class="hero-tag hero-tag-event">
-                            🎃 ÉVÉNEMENT HALLOWEEN
+                            🍥 ÉVÉNEMENT NARUTO
                         </div>
 
-                    </div>
-
-                    <!-- COMPTE À REBOURS HALLOWEEN -->
-                    <div style="margin: 10px 0; font-weight: bold; color: #ff6500; font-size: 0.9rem; background: rgba(0,0,0,0.6); padding: 6px 10px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,101,0,0.3);">
-                        ⏳ Début le 18 Oct : <span id="halloween-countdown">--j --:--:--</span>
                     </div>
 
                     <h1>
@@ -294,20 +282,19 @@
             </button>
 
 
-            <!-- VIDÉO HALLOWEEN -->
+            <!-- VIDÉO -->
             <div class="section-head home-head">
                 <div>
                     <small>DÉCOUVRE</small>
-                    <h2>l'événement Halloween</h2>
+                    <h2>l'événement Naruto</h2>
                 </div>
             </div>
 
-            <div class="video-card" id="video-card-container" style="position: relative; cursor: pointer;">
-                <video id="halloween-bottom-video" autoplay loop playsinline preload="auto" style="width: 100%; display: block;">
-                    <source src="VreTlJcMLXqYYcj.mp4">
+            <div class="video-card">
+                <video controls playsinline preload="metadata">
+                    <source src="h1Ax8ZuvJmOszEs.mp4">
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
-                <div id="video-sound-hint" style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 10px; border-radius: 15px; font-size: 0.75rem; pointer-events: none;">🔊 Toucher pour le son</div>
             </div>
 
 
@@ -326,24 +313,6 @@
             </div>
 
             <div class="home-reviews">
-
-                <div class="home-review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p>
-                        « Les prix sont bien, j'ai acheté
-                        mes diamants facilement, merci 🙏 »
-                    </p>
-                    <b>Boma241</b>
-                </div>
-
-                <div class="home-review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p>
-                        « C'est too hyn vous avez ajouté
-                        la musique 🎵 »
-                    </p>
-                    <b>Oscar</b>
-                </div>
 
                 <div class="home-review-card">
                     <div class="review-stars">★★★★★</div>
@@ -651,76 +620,6 @@
                     <b class="review-author">Sami</b>
 
                 </article>
-
-                <article class="review-item">
-
-                    <div class="review-stars">★★★★★</div>
-
-                    <p class="review-text">
-                        « C'est too hyn vous avez ajouté
-                        la musique 🎵😭😇 »
-                    </p>
-
-                    <b class="review-author">Oscar</b>
-
-                </article>
-
-                <article class="review-item">
-
-                    <div class="review-stars">★★★★☆</div>
-
-                    <p class="review-text">
-                        « Je pense qu'il faut encore ajouter
-                        des musiques mais c'est bien, merci. »
-                    </p>
-
-                    <b class="review-author">Andy</b>
-
-                </article>
-
-                <article class="review-item">
-
-                    <div class="review-stars">★★★★★</div>
-
-                    <p class="review-text">
-                        « Pohpoh les prix sont bien, j'ai acheté
-                        mes diamants facilement, merci 🙏 »
-                    </p>
-
-                    <b class="review-author">Boma241</b>
-
-                </article>
-
-                <article class="review-item">
-
-                    <div class="review-stars">★★★★☆</div>
-
-                    <p class="review-text">
-                        « C'est pas bon les gars, je veux plus
-                        d'offres. Le plus important c'est que
-                        le site est fiable, merci. »
-                    </p>
-
-                    <b class="review-author">David</b>
-
-                </article>
-
-            </div>
-
-
-            <div class="feedback-note">
-
-                <span>💬</span>
-
-                <p>
-                    Si vous avez des remarques, vous pouvez
-                    aussi nous les dire au service client
-                    pour améliorer le site. Merci !
-                </p>
-
-                <button data-screen="contact">
-                    Contacter le service client →
-                </button>
 
             </div>
 
@@ -1193,7 +1092,7 @@
     </div>
 
 
-    <!-- BOTTOM NAV -->
+<!-- BOTTOM NAV -->
     <nav class="bottom-nav" aria-label="Navigation principale">
 
         <button class="bottom-item active" data-screen="home" aria-label="Accueil">
@@ -1214,4 +1113,215 @@
 
         <button class="bottom-item" data-screen="sounds" id="nav-sounds" aria-label="Sons">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 1
+                <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+                <rect x="3" y="14" width="4.2" height="7" rx="1.6"/>
+                <rect x="16.8" y="14" width="4.2" height="7" rx="1.6"/>
+            </svg>
+            <small>Sons</small>
+        </button>
+
+        <button class="bottom-item cart-open cart-nav" aria-label="Panier">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="20" r="1.5"/>
+                <circle cx="18" cy="20" r="1.5"/>
+                <path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h9a1 1 0 0 0 1-.8L21 7H6"/>
+            </svg>
+            <i id="bottom-count">0</i>
+            <small>Panier</small>
+        </button>
+
+        <button class="bottom-item" data-screen="more" aria-label="Plus">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h10"/>
+            </svg>
+            <small>Plus</small>
+        </button>
+
+    </nav>
+
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal" id="product-modal" role="dialog" aria-modal="true" aria-label="Détails du produit">
+
+        <div class="modal-card product-modal-card">
+
+            <button class="modal-close" aria-label="Fermer">×</button>
+
+            <div class="product-big-art" id="modal-art">
+                💎
+            </div>
+
+            <div class="modal-badge" id="modal-badge">
+                POPULAIRE
+            </div>
+
+            <h2 id="modal-name">
+                110 Diamants
+            </h2>
+
+            <p id="modal-description">
+                Offre Free Fire
+            </p>
+
+            <div class="modal-price" id="modal-price">
+                650 FCFA
+            </div>
+
+            <div class="quantity">
+
+                <button id="quantity-minus" aria-label="Diminuer la quantité">−</button>
+
+                <strong id="quantity-value">1</strong>
+
+                <button id="quantity-plus" aria-label="Augmenter la quantité">+</button>
+
+            </div>
+
+            <button
+                class="main-button full"
+                id="modal-add">
+                🛒 AJOUTER AU PANIER
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CART MODAL -->
+    <div class="modal" id="cart-modal" role="dialog" aria-modal="true" aria-label="Panier">
+
+        <div class="modal-card cart-modal-card">
+
+            <div class="modal-top">
+
+                <div>
+                    <small>TA COMMANDE</small>
+                    <h2>🛒 Panier</h2>
+                </div>
+
+                <button class="modal-close" aria-label="Fermer">×</button>
+
+            </div>
+
+            <div id="cart-list" class="cart-list"></div>
+
+            <div class="cart-summary">
+
+                <div>
+                    <span>Articles</span>
+                    <b id="summary-count">0</b>
+                </div>
+
+                <div class="grand-total">
+                    <span>Total</span>
+                    <strong id="summary-total">
+                        0 FCFA
+                    </strong>
+                </div>
+
+                <button
+                    class="main-button full"
+                    id="go-checkout">
+                    PASSER LA COMMANDE →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT -->
+    <div class="modal" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Finaliser la commande">
+
+        <div class="modal-card checkout-card">
+
+            <button class="modal-close" aria-label="Fermer">×</button>
+
+            <small>FINALISATION</small>
+
+            <h2>📋 Ma commande</h2>
+
+            <p>
+                Renseigne tes informations
+                pour préparer ton message.
+            </p>
+
+            <p class="checkout-note">
+                <img src="IMG_1728.jpeg" alt="Moov Money" class="moov-logo" onerror="this.style.display='none'">
+                Paiement par Moov Money uniquement.
+                Les infos de paiement te seront
+                communiquées directement sur WhatsApp.
+            </p>
+
+            <div id="checkout-items" class="checkout-items"></div>
+
+
+            <form id="checkout-form">
+
+                <label>ID Free Fire</label>
+
+                <input
+                    id="ff-id"
+                    type="text"
+                    placeholder="Ton ID Free Fire"
+                    required>
+
+
+                <label>Pseudo</label>
+
+                <input
+                    id="customer-name"
+                    type="text"
+                    placeholder="Ton pseudo"
+                    required>
+
+
+                <label>WhatsApp</label>
+
+                <input
+                    id="customer-phone"
+                    type="tel"
+                    placeholder="Ton numéro"
+                    required>
+
+
+                <div class="checkout-total">
+
+                    <span>Total</span>
+
+                    <strong id="checkout-total">
+                        0 FCFA
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="whatsapp-button full">
+                    📲 PRÉPARER SUR WHATSAPP
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div id="toast" class="toast" role="status" aria-live="polite">
+        <span>✓</span>
+        <p>Produit ajouté</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="sounds.js"></script>
+
+</body>
+</html>
