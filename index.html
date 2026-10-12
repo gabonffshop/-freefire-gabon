@@ -161,8 +161,9 @@
                     </div>
 
                     <!-- COMPTE À REBOURS HALLOWEEN -->
-                    <div class="countdown-banner" style="margin: 10px 0; font-weight: bold; color: #ff6500; font-size: 0.95rem; background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 8px; display: inline-block; border: 1px solid rgba(255,101,0,0.3);">
-                        ⏳ Début le 18 Oct : <span id="halloween-countdown">--j --:--:--</span>
+                    <div class="halloween-countdown-box">
+                        <span>⏳ 18 OCTOBRE :</span>
+                        <span id="halloween-countdown">--j --:--:--</span>
                     </div>
 
                     <h1>
@@ -294,7 +295,7 @@
             </button>
 
 
-            <!-- VIDÉO HALLOWEEN (AVEC AUDIO AUTOMATIQUE) -->
+            <!-- VIDÉO HALLOWEEN (AVEC GESTION DU SON INTERACTIVE) -->
             <div class="section-head home-head">
                 <div>
                     <small>DÉCOUVRE</small>
@@ -302,11 +303,12 @@
                 </div>
             </div>
 
-            <div class="video-card">
+            <div class="video-card" id="video-card-container" style="cursor: pointer;" title="Touchez pour activer/couper le son">
                 <video id="halloween-bottom-video" autoplay loop playsinline preload="auto">
                     <source src="VreTlJcMLXqYYcj.mp4">
                     Ton navigateur ne supporte pas la vidéo.
                 </video>
+                <div class="video-sound-hint" id="video-sound-hint">🔊 Toucher pour le son</div>
             </div>
 
 
@@ -1459,16 +1461,34 @@ setInterval(updateHalloweenCountdown, 1000);
 updateHalloweenCountdown();
 </script>
 
-<!-- SCRIPT POUR TENTER DE FORCER L'AUDIO DE LA VIDÉO DU BAS -->
+<!-- SCRIPT GESTION DU SON INTERACTIF DE LA VIDÉO DU BAS -->
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-    const bottomVideo = document.getElementById('halloween-bottom-video');
-    if (bottomVideo) {
-        bottomVideo.muted = false;
-        bottomVideo.play().catch(() => {
-            // Si le navigateur bloque l'audio automatique, on active le mode muet en secours pour que la vidéo se lance quand même
-            bottomVideo.muted = true;
-            bottomVideo.play();
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('halloween-bottom-video');
+    const container = document.getElementById('video-card-container');
+    const hint = document.getElementById('video-sound-hint');
+
+    if (video && container) {
+        // Tente de lancer avec le son directement
+        video.muted = false;
+        video.play().catch(() => {
+            // Si le navigateur bloque l'audio, on met en muet par défaut
+            video.muted = true;
+            video.play();
+        });
+
+        // Au clic/tap sur la vidéo, l'utilisateur active ou coupe le son facilement
+        container.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+                hint.textContent = "🔇 Son coupé (Toucher pour activer)";
+            } else {
+                hint.textContent = "🔊 Son activé (Toucher pour couper)";
+            }
+            // Disparition de l'indicateur après 2 secondes
+            setTimeout(() => {
+                hint.style.opacity = '0.7';
+            }, 2000);
         });
     }
 });
