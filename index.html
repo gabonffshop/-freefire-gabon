@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#080808">
+    <meta name="theme-color" content="#0b0612">
     <meta name="description" content="Achète tes diamants Free Fire au Gabon : recharges, packs combos et Booyah Pass. Choisis ton offre et prépare ta commande WhatsApp en quelques secondes.">
 
     <title>Acheter des Diamants Free Fire au Gabon | FREE FIRE STORE GABON</title>
@@ -27,7 +27,7 @@
     <meta name="twitter:description" content="Diamants, packs et Booyah Pass Free Fire. Commande en quelques secondes, livraison via WhatsApp 🇬🇦.">
     <meta name="twitter:image" content="https://gabonffshop.pages.dev/IMG_1729.jpeg">
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%83%3C/text%3E%3C/svg%3E">
 
     <link rel="stylesheet" href="style.css">
 
@@ -60,12 +60,12 @@
     </script>
 </head>
 
-<body>
+<body class="halloween">
 
 <!-- LOADER -->
 <div id="loader">
     <div class="loader-glow"></div>
-    <div class="loader-logo">🔥</div>
+    <div class="loader-logo">🎃</div>
     <div class="loader-title">FREE FIRE STORE</div>
     <div class="loader-subtitle">GABON</div>
     <div class="loader-bar">
@@ -82,7 +82,7 @@
     <header class="app-header">
 
         <button class="brand" data-screen="home">
-            <span class="brand-fire">🔥</span>
+            <span class="brand-fire">🎃</span>
             <span>
                 <b>FREE FIRE</b>
                 <small>STORE GABON</small>
@@ -301,7 +301,7 @@
             <div class="event-countdown" id="event-countdown">
 
                 <div class="ec-label" id="ec-label">
-                    🎃 L'ÉVÉNEMENT COMMENCE LE 18 OCTOBRE
+                    🎃 L'ÉVÉNEMENT COMMENCE LE 16 OCTOBRE
                 </div>
 
                 <div class="ec-timer" id="ec-timer">
@@ -1454,14 +1454,31 @@
 
 </div>
 
+<!-- AMBIANCE HALLOWEEN (pour l'enlever après l'événement : retire class="halloween" de la balise <body>) -->
+<div class="hw-fx" aria-hidden="true">
+
+    <span class="bat" style="top:10%;--d:19s;--w:0s">🦇</span>
+    <span class="bat" style="top:24%;--d:26s;--w:7s;--s:20px">🦇</span>
+    <span class="bat hide-sm" style="top:42%;--d:22s;--w:13s;--s:24px">🦇</span>
+
+    <span class="bob" style="left:3%;top:72%;--s:30px;--d:5s">🎃</span>
+    <span class="bob hide-sm" style="right:3%;top:58%;--s:26px;--d:6s;--w:1s">🎃</span>
+    <span class="bob" style="right:4%;top:30%;--s:28px;--d:7s;--w:2s">👻</span>
+    <span class="bob hide-sm" style="left:2%;top:36%;--s:24px;--d:6s;--w:3s">👻</span>
+
+    <span class="spider" style="right:12%">🕷️</span>
+    <span class="spider hide-sm" style="left:9%;--d:7s;--h:46px">🕷️</span>
+
+</div>
+
 <script src="script.js"></script>
 <script src="sounds.js"></script>
 
 <script>
-/* COMPTE À REBOURS HALLOWEEN : début le 18 octobre 2026 à 00:00 (heure du Gabon, UTC+1) */
+/* COMPTE À REBOURS HALLOWEEN : début le 16 octobre 2026 à 00:00 (heure du Gabon, UTC+1) */
 (function () {
 
-    const target = new Date("2026-10-18T00:00:00+01:00").getTime();
+    const target = new Date("2026-10-16T00:00:00+01:00").getTime();
 
     const wrap  = document.getElementById("event-countdown");
     const label = document.getElementById("ec-label");
