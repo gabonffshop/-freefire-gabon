@@ -5774,3 +5774,85 @@ body.halloween .hw-fx {
 
     animation: fadeInUp .5s ease .45s both;
 }
+
+
+/* =====================================================
+   COMPTE À REBOURS : après le début de l'événement
+   ===================================================== */
+
+.ec-offer {
+    display: none;
+
+    margin-top: 12px;
+
+    color: #ffd9a8;
+
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.ec-cta {
+    display: none;
+
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 15px 20px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    box-shadow: 0 10px 30px rgba(255,101,0,.3);
+
+    animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+.event-countdown.started .ec-cta {
+    display: block;
+}
+
+.ec-cta:active {
+    transform: scale(.96);
+}
+
+/* =====================================================
+   GÉNÉRATEUR : série + bouton commander
+   ===================================================== */
+
+.sensi-opt {
+    color: #777;
+
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.sensi-buy {
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    box-shadow: 0 10px 26px rgba(255,101,0,.28);
+}
+
+.sensi-buy:active {
+    transform: scale(.96);
+}
