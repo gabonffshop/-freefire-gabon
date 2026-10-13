@@ -5593,3 +5593,162 @@ body.halloween .hw-fx {
     font-size: 11px;
     line-height: 1.55;
 }
+
+
+/* =====================================================
+   SENSIBILITÉ : mise en avant sur l'accueil
+   ===================================================== */
+
+.hero-card + .sensi-banner {
+    margin-top: 16px;
+}
+
+.sensi-banner {
+    animation:
+        fadeInUp .5s ease .35s both,
+        sensiGlow 2.6s ease-in-out 1.2s infinite;
+}
+
+@keyframes sensiGlow {
+
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(255,101,0,0);
+    }
+
+    50% {
+        box-shadow: 0 0 26px rgba(255,101,0,.35);
+    }
+
+}
+
+/* petite carte qui propose le générateur */
+
+.sensi-pop {
+    position: fixed;
+
+    top: 78px;
+    left: 50%;
+
+    z-index: 960;
+
+    width: min(560px,calc(100% - 20px));
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 40px 12px 12px;
+
+    border: 1px solid rgba(255,101,0,.45);
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(255,101,0,.25),
+            transparent 60%
+        ),
+        rgba(18,18,18,.96);
+
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+
+    box-shadow: 0 18px 50px rgba(0,0,0,.65);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%,-18px);
+
+    transition:
+        transform .4s cubic-bezier(.22,.9,.28,1),
+        opacity .3s,
+        visibility 0s linear .4s;
+}
+
+.sensi-pop.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%,0);
+
+    transition:
+        transform .4s cubic-bezier(.22,.9,.28,1),
+        opacity .3s,
+        visibility 0s;
+}
+
+.sp2-icon {
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    font-size: 21px;
+}
+
+.sp2-text {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.sp2-text b {
+    display: block;
+
+    font-size: 13px;
+}
+
+.sp2-text small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #aaa;
+
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.sp2-go {
+    flex-shrink: 0;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    background: #1fca67;
+    color: #fff;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.sp2-go:active {
+    transform: scale(.95);
+}
+
+.sp2-close {
+    position: absolute;
+
+    top: 6px;
+    right: 8px;
+
+    width: 28px;
+    height: 28px;
+
+    background: none;
+    color: #888;
+
+    font-size: 20px;
+    line-height: 1;
+}
