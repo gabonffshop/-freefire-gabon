@@ -340,6 +340,12 @@
 
                 </div>
 
+                <p class="ec-offer" id="ec-offer"></p>
+
+                <button class="ec-cta" id="ec-cta" type="button" data-screen="shop">
+                    🎃 VOIR LES OFFRES →
+                </button>
+
             </div>
 
             <div class="video-card">
@@ -990,10 +996,15 @@
                 <div class="sensi-label">1. Marque de ton téléphone</div>
                 <div class="sensi-chips" id="sensi-brands"></div>
 
-                <div class="sensi-label">2. Niveau du téléphone</div>
+                <div id="sensi-series-wrap" hidden>
+                    <div class="sensi-label">2. Série ou modèle <span class="sensi-opt">(facultatif)</span></div>
+                    <div class="sensi-chips" id="sensi-series"></div>
+                </div>
+
+                <div class="sensi-label">3. Niveau du téléphone <span class="sensi-opt">(auto si tu choisis la série)</span></div>
                 <div class="sensi-chips" id="sensi-levels"></div>
 
-                <div class="sensi-label">3. Ton style de jeu</div>
+                <div class="sensi-label">4. Ton style de jeu</div>
                 <div class="sensi-chips" id="sensi-styles"></div>
 
                 <button class="main-button full" id="sensi-go">
@@ -1545,6 +1556,11 @@
 
     const target = new Date("2026-10-16T00:00:00+01:00").getTime();
 
+    /* Texte de l'offre Halloween affiché quand le compte à rebours arrive à zéro.
+       Exemple : "-10 % sur tous les packs jusqu'au 31 octobre"
+       Laisse vide ("") pour n'afficher que le message "L'événement a commencé". */
+    const OFFER_TEXT = "";
+
     const wrap  = document.getElementById("event-countdown");
     const label = document.getElementById("ec-label");
     const timer = document.getElementById("ec-timer");
@@ -1553,6 +1569,7 @@
     const elH = document.getElementById("ec-h");
     const elM = document.getElementById("ec-m");
     const elS = document.getElementById("ec-s");
+    const offer = document.getElementById("ec-offer");
 
     if (!wrap) return;
 
@@ -1569,6 +1586,11 @@
             wrap.classList.add("started");
             label.textContent = "🎃 L'ÉVÉNEMENT HALLOWEEN A COMMENCÉ !";
             timer.style.display = "none";
+
+            if (OFFER_TEXT) {
+                offer.textContent = OFFER_TEXT;
+                offer.style.display = "block";
+            }
 
             clearInterval(interval);
 
@@ -1681,6 +1703,8 @@
 (function () {
 
     const brandsEl = document.getElementById("sensi-brands");
+    const seriesWrap = document.getElementById("sensi-series-wrap");
+    const seriesEl = document.getElementById("sensi-series");
     const levelsEl = document.getElementById("sensi-levels");
     const stylesEl = document.getElementById("sensi-styles");
     const goBtn    = document.getElementById("sensi-go");
@@ -1688,19 +1712,61 @@
 
     if (!brandsEl || !goBtn) return;
 
+    /* niveau estimé : entry = entrée de gamme, mid = milieu de gamme, high = haut de gamme */
+
     const BRANDS = [
-        { key: "iPhone",  level: "high"  },
-        { key: "Samsung", level: "mid"   },
-        { key: "Tecno",   level: "entry" },
-        { key: "Infinix", level: "entry" },
-        { key: "Xiaomi",  level: "mid"   },
-        { key: "Redmi",   level: "mid"   },
-        { key: "Poco",    level: "mid"   },
-        { key: "Oppo",    level: "mid"   },
-        { key: "Realme",  level: "mid"   },
-        { key: "Huawei",  level: "mid"   },
-        { key: "Itel",    level: "entry" },
-        { key: "Autre",   level: "mid"   }
+        { key: "iPhone", level: "high", series: [
+            { label: "6 à 8 / SE",  level: "entry" },
+            { label: "X à 12",      level: "mid"   },
+            { label: "13 à 16",     level: "high"  }
+        ]},
+        { key: "Samsung", level: "mid", series: [
+            { label: "A0x (A05, A06…)",          level: "entry" },
+            { label: "A1x à A5x (A15, A35…)",    level: "mid"   },
+            { label: "S / Z",                    level: "high"  }
+        ]},
+        { key: "Tecno", level: "entry", series: [
+            { label: "Pop / Spark Go",   level: "entry" },
+            { label: "Spark / Camon",    level: "mid"   },
+            { label: "Pova / Phantom",   level: "high"  }
+        ]},
+        { key: "Infinix", level: "entry", series: [
+            { label: "Smart / Hot",  level: "entry" },
+            { label: "Note",         level: "mid"   },
+            { label: "Zero / GT",    level: "high"  }
+        ]},
+        { key: "Xiaomi", level: "mid", series: [
+            { label: "Xiaomi milieu de gamme", level: "mid"  },
+            { label: "Xiaomi 12 à 15",         level: "high" }
+        ]},
+        { key: "Redmi", level: "mid", series: [
+            { label: "Redmi A / C",   level: "entry" },
+            { label: "Redmi / Note",  level: "mid"   }
+        ]},
+        { key: "Poco", level: "mid", series: [
+            { label: "Poco C / M",  level: "entry" },
+            { label: "Poco X",      level: "mid"   },
+            { label: "Poco F",      level: "high"  }
+        ]},
+        { key: "Oppo", level: "mid", series: [
+            { label: "Série A",   level: "entry" },
+            { label: "Reno",      level: "mid"   },
+            { label: "Find X",    level: "high"  }
+        ]},
+        { key: "Realme", level: "mid", series: [
+            { label: "Série C",          level: "entry" },
+            { label: "Realme / Narzo",   level: "mid"   },
+            { label: "GT",               level: "high"  }
+        ]},
+        { key: "Huawei", level: "mid", series: [
+            { label: "Y / Nova Y",  level: "entry" },
+            { label: "Nova",        level: "mid"   },
+            { label: "P / Mate",    level: "high"  }
+        ]},
+        { key: "Itel", level: "entry", series: [
+            { label: "A / P / S", level: "entry" }
+        ]},
+        { key: "Autre", level: "mid", series: [] }
     ];
 
     const LEVEL_LABEL = {
@@ -1734,6 +1800,7 @@
 
     const state = {
         brand: null,
+        series: null,
         level: "auto",
         style: "balanced"
     };
@@ -1773,11 +1840,50 @@
 
     }
 
+    function currentBrand() {
+        return BRANDS.find(b => b.key === state.brand);
+    }
+
+    function currentSeries() {
+
+        const brand = currentBrand();
+
+        if (!brand || state.series === null) return null;
+
+        return brand.series[state.series] || null;
+    }
+
+    function renderSeries() {
+
+        const brand = currentBrand();
+
+        if (!brand || !brand.series.length) {
+            seriesWrap.hidden = true;
+            return;
+        }
+
+        seriesWrap.hidden = false;
+
+        chips(
+            seriesEl,
+            [{ key: null, label: "Je ne sais pas" }].concat(
+                brand.series.map((x, i) => ({ key: i, label: x.label }))
+            ),
+            () => state.series,
+            key => { state.series = key; }
+        );
+
+    }
+
     chips(
         brandsEl,
         BRANDS.map(b => ({ key: b.key, label: b.key })),
         () => state.brand,
-        key => { state.brand = key; }
+        key => {
+            state.brand = key;
+            state.series = null;
+            renderSeries();
+        }
     );
 
     chips(
@@ -1814,10 +1920,20 @@
             return;
         }
 
-        const brand = BRANDS.find(b => b.key === state.brand);
+        const brand  = currentBrand();
+        const series = currentSeries();
 
-        const auto  = state.level === "auto";
-        const level = auto ? brand.level : state.level;
+        const auto = state.level === "auto";
+
+        const level = auto
+            ? (series ? series.level : brand.level)
+            : state.level;
+
+        const source = !auto
+            ? ""
+            : (series ? " (selon ta série)" : " (auto)");
+
+        const model = series ? `${brand.key} ${series.label}` : brand.key;
 
         const values = BASE[state.style].map(v => clamp(v + ADJUST[level]));
 
@@ -1842,8 +1958,8 @@
         result.innerHTML = `
             <div class="sensi-result-head">
                 <small>TES RÉGLAGES</small>
-                <h2>${brand.key} · ${STYLE_LABEL[state.style]}</h2>
-                <p>${LEVEL_LABEL[level]}${auto ? " (auto)" : ""}</p>
+                <h2>${model} · ${STYLE_LABEL[state.style]}</h2>
+                <p>${LEVEL_LABEL[level]}${source}</p>
             </div>
 
             ${rows}
@@ -1857,6 +1973,10 @@
                 <button type="button" class="sensi-share" id="sensi-share">📲 Envoyer</button>
             </div>
 
+            <button type="button" class="sensi-buy" data-screen="shop">
+                💎 Commander des diamants
+            </button>
+
             <p class="sensi-note">
                 Ce sont des réglages de départ conseillés, pas des valeurs
                 officielles de Free Fire. Chaque joueur a sa main : ajuste
@@ -1868,7 +1988,7 @@
 
         const text =
             `🎯 Sensibilité Free Fire\n` +
-            `${brand.key} (${LEVEL_LABEL[level]}) · ${STYLE_LABEL[state.style]}\n\n` +
+            `${model} (${LEVEL_LABEL[level]}) · ${STYLE_LABEL[state.style]}\n\n` +
             NAMES.map((n, i) => `${n} : ${values[i]}`).join("\n") +
             `\n\nFree Fire Store Gabon 🇬🇦`;
 
