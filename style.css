@@ -5752,3 +5752,25 @@ body.halloween .hw-fx {
     font-size: 20px;
     line-height: 1;
 }
+
+
+/* bannière Sons : même format que la bannière Sensibilité */
+
+.sensi-banner--sound {
+    border-color: rgba(180,107,255,.3);
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(255,101,0,.2),
+            transparent 55%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(180,107,255,.2),
+            transparent 55%
+        ),
+        #111;
+
+    animation: fadeInUp .5s ease .45s both;
+}
