@@ -4991,3 +4991,262 @@ body.player-on .toast {
     }
 
 }
+
+
+/* =====================================================
+   AMBIANCE HALLOWEEN
+   (tout est lié à la classe "halloween" sur <body> :
+   pour l'enlever, retire simplement cette classe)
+   ===================================================== */
+
+body.halloween {
+    background: #07040c;
+}
+
+/* lueurs violette et orange en fond */
+
+body.halloween::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 12% 0,
+            rgba(138,60,255,.24),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 95% 100%,
+            rgba(255,101,0,.2),
+            transparent 45%
+        );
+}
+
+body.halloween .app-header {
+    border-bottom-color: rgba(255,101,0,.3);
+
+    box-shadow: 0 6px 30px rgba(138,60,255,.12);
+}
+
+body.halloween .brand-fire {
+    filter: drop-shadow(0 0 10px rgba(255,101,0,.8));
+}
+
+body.halloween .loader-glow {
+    background:
+        radial-gradient(
+            circle,
+            rgba(138,60,255,.32),
+            rgba(255,101,0,.15) 45%,
+            transparent 70%
+        );
+}
+
+body.halloween #loader {
+    background: #07040c;
+}
+
+/* titres lumineux */
+
+body.halloween .section-head h2,
+body.halloween .screen-heading h1,
+body.halloween .promo-header h1 {
+    text-shadow: 0 0 22px rgba(255,101,0,.45);
+}
+
+body.halloween .hero-tag-event {
+    color: #d9b3ff;
+
+    background: rgba(138,60,255,.16);
+
+    border-color: rgba(138,60,255,.5);
+}
+
+/* toiles d'araignée dans les coins de la bannière */
+
+body.halloween .hero-card::before,
+body.halloween .hero-card::after {
+    content: "🕸️";
+
+    position: absolute;
+
+    top: -8px;
+
+    z-index: 3;
+
+    font-size: 78px;
+    line-height: 1;
+
+    opacity: .4;
+
+    pointer-events: none;
+}
+
+body.halloween .hero-card::before {
+    left: -6px;
+}
+
+body.halloween .hero-card::after {
+    right: -6px;
+
+    transform: scaleX(-1);
+}
+
+/* cartes et boutons */
+
+body.halloween .product:hover,
+body.halloween .cat-tile:hover {
+    border-color: rgba(138,60,255,.75);
+
+    box-shadow: 0 15px 45px rgba(138,60,255,.25);
+}
+
+body.halloween .main-button {
+    box-shadow:
+        0 10px 30px rgba(255,101,0,.28),
+        0 0 0 1px rgba(255,157,0,.25);
+}
+
+body.halloween .bottom-nav {
+    border-color: rgba(138,60,255,.25);
+}
+
+body.halloween .event-countdown {
+    box-shadow:
+        0 0 40px rgba(138,60,255,.18),
+        0 0 30px rgba(255,101,0,.12);
+}
+
+body.halloween .video-card {
+    border-color: rgba(255,101,0,.35);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.4),
+        0 0 40px rgba(138,60,255,.18);
+}
+
+/* décor qui bouge : chauves-souris, citrouilles, fantômes, araignées */
+
+.hw-fx {
+    display: none;
+}
+
+body.halloween .hw-fx {
+    position: fixed;
+    inset: 0;
+
+    z-index: 800;
+
+    display: block;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.hw-fx span {
+    position: absolute;
+
+    font-size: var(--s, 26px);
+    line-height: 1;
+
+    opacity: .6;
+
+    filter: drop-shadow(0 0 8px rgba(255,101,0,.55));
+}
+
+.hw-fx .bat {
+    left: 0;
+
+    animation: hwBat var(--d, 20s) linear var(--w, 0s) infinite;
+
+    transform: translateX(-80px);
+}
+
+@keyframes hwBat {
+
+    0% {
+        transform: translateX(-80px) translateY(0) rotate(-6deg);
+    }
+
+    25% {
+        transform: translateX(27vw) translateY(-26px) rotate(6deg);
+    }
+
+    50% {
+        transform: translateX(54vw) translateY(12px) rotate(-6deg);
+    }
+
+    75% {
+        transform: translateX(80vw) translateY(-22px) rotate(6deg);
+    }
+
+    100% {
+        transform: translateX(112vw) translateY(0) rotate(-6deg);
+    }
+
+}
+
+.hw-fx .bob {
+    animation: hwBob var(--d, 6s) ease-in-out var(--w, 0s) infinite;
+}
+
+@keyframes hwBob {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(8deg);
+    }
+
+}
+
+.hw-fx .spider {
+    top: var(--h, 70px);
+
+    font-size: 22px;
+
+    animation: hwDrop var(--d, 6s) ease-in-out infinite;
+}
+
+.hw-fx .spider::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 80%;
+
+    width: 1px;
+    height: 100vh;
+
+    background: rgba(255,255,255,.35);
+}
+
+@keyframes hwDrop {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(34px);
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .hw-fx .hide-sm {
+        display: none;
+    }
+
+}
