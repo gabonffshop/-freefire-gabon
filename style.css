@@ -5250,3 +5250,346 @@ body.halloween .hw-fx {
     }
 
 }
+
+
+/* =====================================================
+   GÉNÉRATEUR DE SENSIBILITÉ
+   ===================================================== */
+
+.sensi-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 14px;
+
+    border: 1px solid rgba(255,101,0,.3);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(255,101,0,.22),
+            transparent 55%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(31,202,103,.14),
+            transparent 55%
+        ),
+        #111;
+
+    color: #fff;
+
+    text-align: left;
+
+    transition: transform .25s;
+
+    animation: fadeInUp .5s ease .35s both;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sensi-banner:active {
+    transform: scale(.98);
+}
+
+.sn-icon {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    font-size: 26px;
+
+    box-shadow: 0 8px 22px rgba(255,101,0,.35);
+}
+
+.sn-text {
+    min-width: 0;
+}
+
+.sn-text small {
+    color: #ffb16d;
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.sn-text b {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.sn-sub {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+.sn-arrow {
+    margin-left: auto;
+
+    color: var(--orange);
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.sensi-card {
+    padding: 22px 18px;
+
+    border: 1px solid #292929;
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 85% -10%,
+            rgba(255,101,0,.16),
+            transparent 45%
+        ),
+        linear-gradient(160deg,#131313,#0c0c0c);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+
+    animation: fadeInUp .5s ease both;
+}
+
+.sensi-intro {
+    margin-bottom: 8px;
+
+    color: #999;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.sensi-label {
+    margin: 20px 0 10px;
+
+    color: var(--orange);
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.sensi-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sensi-chip {
+    padding: 10px 14px;
+
+    border: 1px solid #2c2c2c;
+    border-radius: 30px;
+
+    background: #111;
+    color: #bbb;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: .2s;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sensi-chip:active {
+    transform: scale(.95);
+}
+
+.sensi-chip.active {
+    border-color: transparent;
+
+    background:
+        linear-gradient(135deg, var(--orange), var(--orange2));
+
+    color: #fff;
+
+    box-shadow: 0 8px 22px rgba(255,101,0,.28);
+}
+
+#sensi-go {
+    margin-top: 24px;
+}
+
+.sensi-result {
+    display: none;
+
+    margin-top: 18px;
+    padding: 22px 18px;
+
+    border: 1px solid rgba(31,202,103,.3);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 10% -10%,
+            rgba(31,202,103,.14),
+            transparent 45%
+        ),
+        linear-gradient(160deg,#131313,#0c0c0c);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.sensi-result.show {
+    display: block;
+
+    animation: fadeInUp .45s ease both;
+}
+
+.sensi-result-head small {
+    color: #1fca67;
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.sensi-result-head h2 {
+    margin-top: 6px;
+
+    font-size: 22px;
+}
+
+.sensi-result-head p {
+    margin: 4px 0 18px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.sensi-row {
+    margin-bottom: 14px;
+}
+
+.sensi-row-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+}
+
+.sensi-row-top b {
+    color: var(--orange2);
+
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+}
+
+.sensi-bar {
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,.1);
+}
+
+.sensi-bar i {
+    display: block;
+
+    height: 100%;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(90deg, var(--orange), var(--orange2));
+}
+
+.sensi-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin: 20px 0 16px;
+}
+
+.sensi-tips li {
+    padding: 11px 13px;
+
+    border: 1px solid #252525;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.02);
+
+    color: #bbb;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.sensi-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.sensi-copy,
+.sensi-share {
+    height: 46px;
+
+    border-radius: 12px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: transform .15s;
+}
+
+.sensi-copy {
+    border: 1px solid #383838;
+
+    background: #262626;
+    color: #fff;
+}
+
+.sensi-share {
+    background: #1fca67;
+    color: #fff;
+}
+
+.sensi-copy:active,
+.sensi-share:active {
+    transform: scale(.96);
+}
+
+.sensi-note {
+    margin-top: 16px;
+
+    color: #777;
+
+    font-size: 11px;
+    line-height: 1.55;
+}
