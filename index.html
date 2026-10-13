@@ -268,6 +268,22 @@
             </button>
 
 
+            <!-- BANNIÈRE SENSIBILITÉ -->
+            <button class="sensi-banner" data-screen="sensi">
+
+                <span class="sn-icon">🎯</span>
+
+                <span class="sn-text">
+                    <small>NOUVEAU · GRATUIT</small>
+                    <b>Générateur de sensibilité</b>
+                    <span class="sn-sub">Choisis ta marque, reçois tes réglages</span>
+                </span>
+
+                <span class="sn-arrow">→</span>
+
+            </button>
+
+
             <!-- COMMENT ÇA MARCHE -->
             <button class="how-strip" data-screen="how">
 
@@ -568,6 +584,12 @@
                     <span>🆘</span>
                     <b>Centre d'aide</b>
                     <small>Diamants non reçus ?</small>
+                </button>
+
+                <button data-screen="sensi">
+                    <span>🎯</span>
+                    <b>Sensibilité</b>
+                    <small>Générateur gratuit</small>
                 </button>
 
             </div>
@@ -954,6 +976,43 @@
                 </div>
 
             </div>
+
+        </section>
+
+
+        <!-- GÉNÉRATEUR DE SENSIBILITÉ -->
+        <section class="screen" id="screen-sensi">
+
+            <div class="screen-heading">
+                <div>
+                    <small>OUTIL GRATUIT</small>
+                    <h1>🎯 Sensibilité Free Fire</h1>
+                </div>
+            </div>
+
+            <div class="sensi-card">
+
+                <p class="sensi-intro">
+                    Choisis la marque de ton téléphone et ton style de jeu.
+                    Tu reçois des réglages de départ pour Free Fire.
+                </p>
+
+                <div class="sensi-label">1. Marque de ton téléphone</div>
+                <div class="sensi-chips" id="sensi-brands"></div>
+
+                <div class="sensi-label">2. Niveau du téléphone</div>
+                <div class="sensi-chips" id="sensi-levels"></div>
+
+                <div class="sensi-label">3. Ton style de jeu</div>
+                <div class="sensi-chips" id="sensi-styles"></div>
+
+                <button class="main-button full" id="sensi-go">
+                    ⚡ GÉNÉRER MES RÉGLAGES
+                </button>
+
+            </div>
+
+            <div class="sensi-result" id="sensi-result"></div>
 
         </section>
 
@@ -1560,6 +1619,235 @@
         play();
 
     }
+
+})();
+
+
+/* GÉNÉRATEUR DE SENSIBILITÉ FREE FIRE */
+(function () {
+
+    const brandsEl = document.getElementById("sensi-brands");
+    const levelsEl = document.getElementById("sensi-levels");
+    const stylesEl = document.getElementById("sensi-styles");
+    const goBtn    = document.getElementById("sensi-go");
+    const result   = document.getElementById("sensi-result");
+
+    if (!brandsEl || !goBtn) return;
+
+    const BRANDS = [
+        { key: "iPhone",  level: "high"  },
+        { key: "Samsung", level: "mid"   },
+        { key: "Tecno",   level: "entry" },
+        { key: "Infinix", level: "entry" },
+        { key: "Xiaomi",  level: "mid"   },
+        { key: "Redmi",   level: "mid"   },
+        { key: "Poco",    level: "mid"   },
+        { key: "Oppo",    level: "mid"   },
+        { key: "Realme",  level: "mid"   },
+        { key: "Huawei",  level: "mid"   },
+        { key: "Itel",    level: "entry" },
+        { key: "Autre",   level: "mid"   }
+    ];
+
+    const LEVEL_LABEL = {
+        entry: "Entrée de gamme",
+        mid:   "Milieu de gamme",
+        high:  "Haut de gamme"
+    };
+
+    const STYLE_LABEL = {
+        rush:      "Rush",
+        balanced:  "Équilibré",
+        precision: "Précision"
+    };
+
+    const NAMES = [
+        "Général",
+        "Point rouge",
+        "Lunette 2x",
+        "Lunette 4x",
+        "Sniper (AWM)",
+        "Vue libre"
+    ];
+
+    const BASE = {
+        rush:      [100, 96, 90, 84, 60, 72],
+        balanced:  [95,  90, 84, 78, 55, 66],
+        precision: [88,  84, 78, 72, 48, 60]
+    };
+
+    const ADJUST = { entry: 3, mid: 0, high: -2 };
+
+    const state = {
+        brand: null,
+        level: "auto",
+        style: "balanced"
+    };
+
+    function toast(msg) {
+        if (typeof showToast === "function") showToast(msg);
+    }
+
+    function chips(container, items, getSelected, onPick) {
+
+        container.innerHTML = "";
+
+        items.forEach(item => {
+
+            const b = document.createElement("button");
+
+            b.type = "button";
+            b.className = "sensi-chip";
+            b.textContent = item.label;
+
+            if (getSelected() === item.key) b.classList.add("active");
+
+            b.addEventListener("click", () => {
+
+                onPick(item.key);
+
+                container.querySelectorAll(".sensi-chip")
+                    .forEach(c => c.classList.remove("active"));
+
+                b.classList.add("active");
+
+            });
+
+            container.appendChild(b);
+
+        });
+
+    }
+
+    chips(
+        brandsEl,
+        BRANDS.map(b => ({ key: b.key, label: b.key })),
+        () => state.brand,
+        key => { state.brand = key; }
+    );
+
+    chips(
+        levelsEl,
+        [
+            { key: "auto",  label: "Auto" },
+            { key: "entry", label: LEVEL_LABEL.entry },
+            { key: "mid",   label: LEVEL_LABEL.mid },
+            { key: "high",  label: LEVEL_LABEL.high }
+        ],
+        () => state.level,
+        key => { state.level = key; }
+    );
+
+    chips(
+        stylesEl,
+        [
+            { key: "rush",      label: "Rush" },
+            { key: "balanced",  label: "Équilibré" },
+            { key: "precision", label: "Précision" }
+        ],
+        () => state.style,
+        key => { state.style = key; }
+    );
+
+    function clamp(n) {
+        return Math.max(0, Math.min(100, n));
+    }
+
+    function generate() {
+
+        if (!state.brand) {
+            toast("Choisis d'abord la marque de ton téléphone");
+            return;
+        }
+
+        const brand = BRANDS.find(b => b.key === state.brand);
+
+        const auto  = state.level === "auto";
+        const level = auto ? brand.level : state.level;
+
+        const values = BASE[state.style].map(v => clamp(v + ADJUST[level]));
+
+        const rows = NAMES.map((name, i) => `
+            <div class="sensi-row">
+                <div class="sensi-row-top">
+                    <span>${name}</span>
+                    <b>${values[i]}</b>
+                </div>
+                <div class="sensi-bar"><i style="width:${values[i]}%"></i></div>
+            </div>
+        `).join("");
+
+        const tips = [
+            "Teste ces réglages 5 minutes en salle d'entraînement, puis ajuste de 3 à 5 points si c'est trop lent ou trop rapide.",
+            level === "entry"
+                ? "Ferme les autres applications avant de jouer pour éviter les ralentissements."
+                : "Si ton téléphone a un mode jeu, active-le avant de lancer la partie.",
+            "Nettoie ton écran : un écran gras ou sale change vraiment le toucher."
+        ];
+
+        result.innerHTML = `
+            <div class="sensi-result-head">
+                <small>TES RÉGLAGES</small>
+                <h2>${brand.key} · ${STYLE_LABEL[state.style]}</h2>
+                <p>${LEVEL_LABEL[level]}${auto ? " (auto)" : ""}</p>
+            </div>
+
+            ${rows}
+
+            <ul class="sensi-tips">
+                ${tips.map(t => `<li>💡 ${t}</li>`).join("")}
+            </ul>
+
+            <div class="sensi-actions">
+                <button type="button" class="sensi-copy" id="sensi-copy">📋 Copier</button>
+                <button type="button" class="sensi-share" id="sensi-share">📲 Envoyer</button>
+            </div>
+
+            <p class="sensi-note">
+                Ce sont des réglages de départ conseillés, pas des valeurs
+                officielles de Free Fire. Chaque joueur a sa main : ajuste
+                selon ton ressenti.
+            </p>
+        `;
+
+        result.classList.add("show");
+
+        const text =
+            `🎯 Sensibilité Free Fire\n` +
+            `${brand.key} (${LEVEL_LABEL[level]}) · ${STYLE_LABEL[state.style]}\n\n` +
+            NAMES.map((n, i) => `${n} : ${values[i]}`).join("\n") +
+            `\n\nFree Fire Store Gabon 🇬🇦`;
+
+        document.getElementById("sensi-copy").addEventListener("click", () => {
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+
+                navigator.clipboard.writeText(text)
+                    .then(() => toast("Réglages copiés ✅"))
+                    .catch(() => toast("Copie impossible sur ce navigateur"));
+
+            } else {
+
+                toast("Copie impossible sur ce navigateur");
+
+            }
+
+        });
+
+        document.getElementById("sensi-share").addEventListener("click", () => {
+
+            window.open(
+                "https://wa.me/?text=" + encodeURIComponent(text),
+                "_blank"
+            );
+
+        });
+
+        result.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    }
+
+    goBtn.addEventListener("click", generate);
 
 })();
 
