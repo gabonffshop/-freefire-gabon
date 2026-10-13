@@ -11,6 +11,6 @@
     "background_color": "#050505",
     "theme_color": "#080808",
     "icons": [
-        { "src": "684A770E-E83E-4AEC-AA2B-EDFDF07E5D4C.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any" }
+        { "src": "IMG_1903.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
     ]
 }
