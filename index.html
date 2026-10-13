@@ -185,6 +185,12 @@
                             🎧 SONS GRATUITS
                         </button>
 
+                        <button
+                            class="ghost-button"
+                            data-screen="sensi">
+                            🎯 SENSIBILITÉ GRATUITE
+                        </button>
+
                     </div>
 
                     <div class="trust-row">
@@ -203,6 +209,22 @@
                 </div>
 
             </div>
+
+
+            <!-- BANNIÈRE SENSIBILITÉ -->
+            <button class="sensi-banner" data-screen="sensi">
+
+                <span class="sn-icon">🎯</span>
+
+                <span class="sn-text">
+                    <small>NOUVEAU · GRATUIT</small>
+                    <b>Générateur de sensibilité</b>
+                    <span class="sn-sub">Choisis ta marque, reçois tes réglages</span>
+                </span>
+
+                <span class="sn-arrow">→</span>
+
+            </button>
 
 
             <!-- CATÉGORIES -->
@@ -264,22 +286,6 @@
                 <span class="sb-eq" aria-hidden="true">
                     <i></i><i></i><i></i><i></i>
                 </span>
-
-            </button>
-
-
-            <!-- BANNIÈRE SENSIBILITÉ -->
-            <button class="sensi-banner" data-screen="sensi">
-
-                <span class="sn-icon">🎯</span>
-
-                <span class="sn-text">
-                    <small>NOUVEAU · GRATUIT</small>
-                    <b>Générateur de sensibilité</b>
-                    <span class="sn-sub">Choisis ta marque, reçois tes réglages</span>
-                </span>
-
-                <span class="sn-arrow">→</span>
 
             </button>
 
@@ -1513,6 +1519,22 @@
 
 </div>
 
+<!-- PROPOSITION SENSIBILITÉ (petite carte qui apparaît quelques secondes) -->
+<div class="sensi-pop" id="sensi-pop" role="dialog" aria-label="Nouveau : générateur de sensibilité">
+
+    <button class="sp2-close" id="sensi-pop-close" type="button" aria-label="Fermer">×</button>
+
+    <span class="sp2-icon">🎯</span>
+
+    <div class="sp2-text">
+        <b>Sensibilité Free Fire gratuite</b>
+        <small>Choisis ta marque de téléphone et reçois tes réglages.</small>
+    </div>
+
+    <button class="sp2-go" id="sensi-pop-go" type="button" data-screen="sensi">Essayer</button>
+
+</div>
+
 <!-- AMBIANCE HALLOWEEN (pour l'enlever après l'événement : retire class="halloween" de la balise <body>) -->
 <div class="hw-fx" aria-hidden="true">
 
@@ -1619,6 +1641,54 @@
         play();
 
     }
+
+})();
+
+
+/* CARTE "SENSIBILITÉ GRATUITE" : s'affiche 3 fois maximum, puis plus jamais */
+(function () {
+
+    const pop = document.getElementById("sensi-pop");
+
+    if (!pop) return;
+
+    const KEY = "ff-sensi-pop-count";
+
+    let count = 0;
+
+    try { count = Number(localStorage.getItem(KEY)) || 0; } catch (e) {}
+
+    const save = n => {
+        try { localStorage.setItem(KEY, String(n)); } catch (e) {}
+    };
+
+    const hide = () => pop.classList.remove("show");
+
+    document.getElementById("sensi-pop-close").addEventListener("click", () => {
+        hide();
+        save(3);
+    });
+
+    document.getElementById("sensi-pop-go").addEventListener("click", () => {
+        hide();
+        save(3);
+    });
+
+    if (count >= 3) return;
+
+    setTimeout(() => {
+
+        const sensi = document.getElementById("screen-sensi");
+
+        if (sensi && sensi.classList.contains("active")) return;
+
+        pop.classList.add("show");
+
+        save(count + 1);
+
+        setTimeout(hide, 10000);
+
+    }, 4000);
 
 })();
 
